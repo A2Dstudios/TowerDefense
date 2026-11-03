@@ -2353,7 +2353,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineConfiner2D
   BoundingShape2D: {fileID: 1805475519}
-  Damping: 0
+  Damping: 0.5
   SlowingDistance: 0
   OversizeWindow:
     Enabled: 0
@@ -2432,6 +2432,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
   _edgeRadius: 0.8
   _moveSpeed: 15
+  _zoomSpeed: 20
+  _minZoom: 2.5
+  _maxZoom: 7.5
 --- !u!1 &2094927140
 GameObject:
   m_ObjectHideFlags: 0
