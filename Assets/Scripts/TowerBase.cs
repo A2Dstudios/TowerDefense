@@ -73,7 +73,6 @@ public class TowerBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        print("HOLAAA");
         if(other.TryGetComponent(out EnemyBase enemy))
         {
             if(!_enemiesInRange.Contains(enemy)) _enemiesInRange.Add(enemy);

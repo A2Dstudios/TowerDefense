@@ -16,6 +16,9 @@ public class ProjectileBase : MonoBehaviour
         _speed = speed;
 
         _rb.linearVelocity = direction * _speed;
+
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.eulerAngles = new Vector3(0, 0, angle);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
