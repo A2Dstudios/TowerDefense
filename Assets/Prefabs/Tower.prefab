@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6363404283278900179}
@@ -176,7 +176,7 @@ MonoBehaviour:
   _projectilePrefab: {fileID: 4475091045041370903, guid: 3111234113c25fa43b6d7ee655bc9663, type: 3}
   _firePoint: {fileID: 2365418757195288}
   _fireRate: 1
-  _projectileSpeed: 10
+  _projectileSpeed: 6
   _attackDamage: 1
 --- !u!58 &9125752303436796628
 CircleCollider2D:
@@ -213,7 +213,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 4
+  m_Radius: 2
 --- !u!50 &2637773504002367310
 Rigidbody2D:
   serializedVersion: 5

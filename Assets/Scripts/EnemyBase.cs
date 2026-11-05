@@ -16,6 +16,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
     {
         _hp = _maxHP;
 
+    }
+
+    private void Start()
+    {
         _objective = GameManager.Instance.Objective;
     }
 
@@ -31,7 +35,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
         if (_isDead) return;
 
         _hp -= damage;
-        print(_hp);
+
         if(_hp <= 0)
         {
             _isDead = true;
