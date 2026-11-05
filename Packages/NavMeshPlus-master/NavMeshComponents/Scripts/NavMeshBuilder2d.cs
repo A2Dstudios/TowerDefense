@@ -109,7 +109,6 @@ namespace NavMeshPlus.Extensions
 
             if (disposing)
             {
-                // TODO: dispose managed state (managed objects).
                 foreach (var item in spriteMeshMap)
                 {
 #if UNITY_EDITOR
@@ -130,8 +129,6 @@ namespace NavMeshPlus.Extensions
                 coliderMeshMap.Clear();
             }
 
-            // TODO: free unmanaged resources (unmanaged objects) and override a finalizer below.
-            // TODO: set large fields to null.
 
             _disposed = true;
         }
