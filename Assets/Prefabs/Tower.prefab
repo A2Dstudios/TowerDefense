@@ -172,12 +172,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerBase
   _attackRange: 5
   _targetingMode: 0
+  _weaponData: {fileID: 11400000, guid: bb05d90ee0e86d14a8baff62e49d7119, type: 2}
   _objective: {fileID: 0}
-  _projectilePrefab: {fileID: 4475091045041370903, guid: 3111234113c25fa43b6d7ee655bc9663, type: 3}
   _firePoint: {fileID: 2365418757195288}
-  _fireRate: 1
-  _projectileSpeed: 6
-  _attackDamage: 1
 --- !u!58 &9125752303436796628
 CircleCollider2D:
   m_ObjectHideFlags: 0
