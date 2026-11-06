@@ -16,6 +16,18 @@ PrefabInstance:
       propertyPath: _speed
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Color.b
+      value: 0.056772053
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8467360139326083040, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
