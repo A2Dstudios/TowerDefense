@@ -9,16 +9,11 @@ public class TowerBase : MonoBehaviour
     [Header("Detection")]
     [SerializeField] private float _attackRange = 5f;
 
-    [Header("Targeting")]
+    [Header("Shooting")]
     [SerializeField] private TargetingMode _targetingMode;
+    [SerializeField] private WeaponData _weaponData;
     [SerializeField] private Transform _objective;
-
-    [Header("Weapon")]
-    [SerializeField] private GameObject _projectilePrefab;
     [SerializeField] private Transform _firePoint;
-    [SerializeField] private float _fireRate = 1f;
-    [SerializeField] private float _projectileSpeed = 10f;
-    [SerializeField] private float _attackDamage = 1f;
 
     private readonly List<EnemyBase> _enemiesInRange = new();
 
@@ -34,7 +29,7 @@ public class TowerBase : MonoBehaviour
 
         Shoot(target);
 
-        _nextFireTime = Time.time + _fireRate;
+        _nextFireTime = Time.time + _weaponData.fireRate;
     }
 
     private EnemyBase GetTarget()
@@ -66,9 +61,9 @@ public class TowerBase : MonoBehaviour
     {
         Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
 
-        GameObject projectileObject = Instantiate(_projectilePrefab, _firePoint.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(_weaponData.projectilePrefab, _firePoint.position, Quaternion.identity);
 
-        projectileObject.GetComponent<ProjectileBase>().Init(_attackDamage, _projectileSpeed, direction);
+        projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, direction);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
