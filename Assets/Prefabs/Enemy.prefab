@@ -360,5 +360,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHitFlash
   _sprite: {fileID: 3614153914012006059}
-  _flashColor: {r: 1, g: 0, b: 0, a: 0.4}
+  _flashColor: {r: 1, g: 0, b: 0, a: 1}
   _flashTime: 0.1

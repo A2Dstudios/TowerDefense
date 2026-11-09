@@ -31,8 +31,8 @@ public class ProjectileBase : MonoBehaviour
         {
             target.TakeDamage(_damage);
 
-            if (_piercing <= 0) Destroy(gameObject);
             _piercing--;
+            if (_piercing < 0) Destroy(gameObject);
         }
     }
 }

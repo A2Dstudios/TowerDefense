@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyHitFlash : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _sprite;
-    [SerializeField] private Color _flashColor = new Color(1f, 1f, 1f, 0.4f);
+    [SerializeField] private Color _flashColor = Color.red;
     [SerializeField] private float _flashTime = 0.1f;
 
     private EnemyBase _enemy;
