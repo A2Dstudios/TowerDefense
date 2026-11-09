@@ -7,7 +7,6 @@ public enum TargetingMode { FIRST, CLOSEST, STRONGEST, WEAKEST }
 public class TowerBase : MonoBehaviour
 {
     [Header("Detection")]
-    [SerializeField] private CircleCollider2D _rangeCollider;
     [SerializeField] private float _attackRange = 5f;
 
     [Header("Shooting")]
@@ -15,27 +14,10 @@ public class TowerBase : MonoBehaviour
     [SerializeField] private WeaponData _weaponData;
     [SerializeField] private Transform _objective;
     [SerializeField] private Transform _firePoint;
-    [SerializeField] private Transform _visualTransform;
 
     private readonly List<EnemyBase> _enemiesInRange = new();
 
-    private float _nextFireTime = 0f;
-
-    // setter para actualizar el radio del collider automaticamente
-    public float AttackRange
-    {
-        get => _attackRange;
-        set
-        {
-            _attackRange = value;
-            _rangeCollider.radius = value;
-        }
-    }
-
-    private void Awake()
-    {
-        _rangeCollider.radius = _attackRange;
-    }
+    private float _nextFireTime;
 
     private void Update()
     {
@@ -45,7 +27,6 @@ public class TowerBase : MonoBehaviour
 
         if (Time.time < _nextFireTime) return;
 
-        Face(target);
         Shoot(target);
 
         _nextFireTime = Time.time + _weaponData.fireRate;
@@ -85,14 +66,6 @@ public class TowerBase : MonoBehaviour
         projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, direction);
     }
 
-    private void Face(EnemyBase target)
-    {
-        Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
-
-        if (direction.x < 0) _visualTransform.localScale = new Vector3(-1f, 1f, 1f);
-        if (direction.x > 0) _visualTransform.localScale = new Vector3(1f, 1f, 1f);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.TryGetComponent(out EnemyBase enemy))
@@ -109,9 +82,4 @@ public class TowerBase : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
-    }
 }
