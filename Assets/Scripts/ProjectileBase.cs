@@ -29,9 +29,11 @@ public class ProjectileBase : MonoBehaviour
     {
         if(other.TryGetComponent(out IDamageable target))
         {
-            target.TakeDamage(_damage);
-
-            _piercing--;
+            if(_piercing >= 0)
+            {
+                target.TakeDamage(_damage);
+                _piercing--;
+            }
             if (_piercing < 0) Destroy(gameObject);
         }
     }
