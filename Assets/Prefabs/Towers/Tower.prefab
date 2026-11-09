@@ -170,11 +170,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab333fa36d8dcd49aa1312ab08bdfc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerBase
-  _attackRange: 5
+  _rangeCollider: {fileID: 9125752303436796628}
+  _attackRange: 2
   _targetingMode: 0
   _weaponData: {fileID: 11400000, guid: bb05d90ee0e86d14a8baff62e49d7119, type: 2}
   _objective: {fileID: 0}
   _firePoint: {fileID: 2365418757195288}
+  _visualTransform: {fileID: 6363404283278900179}
 --- !u!58 &9125752303436796628
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -210,7 +212,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 2
+  m_Radius: 0.0001
 --- !u!50 &2637773504002367310
 Rigidbody2D:
   serializedVersion: 5
