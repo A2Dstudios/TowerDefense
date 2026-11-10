@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: _weaponData
       value: 
       objectReference: {fileID: 11400000, guid: ab80287cbfc2c6b40866d78ac6b87236, type: 2}
+    - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: _targetingMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6363404283278900179, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
