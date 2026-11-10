@@ -1,15 +1,22 @@
+
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class EnemyBase : MonoBehaviour, IDamageable
 {
+    [Header("Enemy Stats")]
     [SerializeField] protected float _maxHP = 10f;
     [SerializeField] protected float _speed = 5f;
     [SerializeField] protected float _xp = 1f;
 
+    [Header("Movement")]
+    [SerializeField] protected PathScript _path;
+
     protected float _hp;
     protected bool _isDead;
 
-    protected Vector3 _objective;
+    private SplineContainer _pathSC;
+    private float _pathProgress = 0f;
 
     public float MaxHp => _maxHP;
     public float Hp => _hp;
@@ -23,7 +30,10 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     protected virtual void Start()
     {
-        _objective = GameManager.Instance.Objective;
+        if (_path != null)
+        {
+            _pathSC = _path.GetComponent<SplineContainer>();
+        }
     }
 
     protected virtual void Update()
@@ -33,10 +43,35 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     protected virtual void Move()
     {
-        transform.position = Vector3.MoveTowards(
-            transform.position,
-            _objective,
-            _speed * Time.deltaTime
+        if (_pathSC == null) return;
+
+        float pathLength = _pathSC.CalculateLength();
+
+        if (pathLength <= 0f) return;
+
+        _pathProgress += Time.deltaTime * _speed;
+
+        while (_pathProgress >= pathLength && _path.getNext() != null)
+        {
+            _pathProgress -= pathLength;
+
+            _path = _path.getNext();
+            _pathSC = _path.GetComponent<SplineContainer>();
+
+            if (_pathSC == null) return;
+
+            pathLength = _pathSC.CalculateLength();
+
+            if (pathLength <= 0f) return;
+        }
+
+        if (_pathProgress >= pathLength)
+        {
+            _pathProgress = pathLength;
+        }
+
+        transform.position = _pathSC.EvaluatePosition(
+            _pathProgress / pathLength
         );
     }
 
@@ -46,7 +81,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         _hp -= damage;
 
-        if (_hp <= 0)
+        if (_hp <= 0f)
         {
             Die();
         }
@@ -58,8 +93,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         _isDead = true;
 
-        // dar XP
-        // evento de muerte
+        // TODO: Give XP
+        // TODO: Death event
 
         Destroy(gameObject);
     }
