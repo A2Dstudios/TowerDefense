@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   projectilePrefab: {fileID: 6093238711409793100, guid: 59129828835438f4495f1c8cb71be809, type: 3}
   fireRate: 0.12
-  projectileSpeed: 12
-  attackDamage: 0.5
+  projectileSpeed: 14
+  attackDamage: 0.25
   piercing: 0

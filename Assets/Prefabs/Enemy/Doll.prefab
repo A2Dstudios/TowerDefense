@@ -331,8 +331,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a9e982822e62a4fb2388ef65452e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
-  _maxHP: 3
+  _maxHP: 4
   _speed: 1
+  _xp: 1
+  _path: {fileID: 0}
 --- !u!114 &6851977762668327305
 MonoBehaviour:
   m_ObjectHideFlags: 0

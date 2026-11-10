@@ -15,5 +15,5 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6995532772497374947, guid: d4fa375b6080dcb4495b504918b82ac6, type: 3}
   fireRate: 0.5
   projectileSpeed: 10
-  attackDamage: 4
+  attackDamage: 1
   piercing: 0
