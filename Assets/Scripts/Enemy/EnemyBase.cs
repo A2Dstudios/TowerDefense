@@ -1,4 +1,5 @@
 
+using System;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -22,6 +23,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public float Hp => _hp;
     public float Speed => _speed;
     public float XP => _xp;
+
+    public event Action OnHealthChanged;
 
     protected virtual void Awake()
     {
@@ -75,17 +78,24 @@ public class EnemyBase : MonoBehaviour, IDamageable
         );
     }
 
-    public virtual void TakeDamage(float damage)
+   public virtual void TakeDamage(float damage)
+{
+    if (_isDead) return;
+
+    _hp -= damage;
+
+    if (_hp < 0f)
     {
-        if (_isDead) return;
-
-        _hp -= damage;
-
-        if (_hp <= 0f)
-        {
-            Die();
-        }
+        _hp = 0f;
     }
+
+    OnHealthChanged?.Invoke();
+
+    if (_hp <= 0f)
+    {
+        Die();
+    }
+}
 
     protected virtual void Die()
     {

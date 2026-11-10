@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class EnemyHealthBar : MonoBehaviour
@@ -5,8 +6,25 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private EnemyBase _enemy;
     [SerializeField] private Transform _pivot;
 
-    private void Update()
+    private void OnEnable()
     {
-        _pivot.localScale = new Vector3(_enemy.Hp / _enemy.MaxHp, 1f, 1f);
+        _enemy.OnHealthChanged += UpdateHealthBar;
+    }
+
+    private void Start()
+    {
+        UpdateHealthBar();
+    }
+
+    private void OnDisable()
+    {
+        _enemy.OnHealthChanged -= UpdateHealthBar;
+    }
+
+    private void UpdateHealthBar()
+    {
+        float healthPercentage = _enemy.Hp / _enemy.MaxHp;
+
+        _pivot.localScale = new Vector3( healthPercentage, 1f,1f);
     }
 }

@@ -1,6 +1,7 @@
+
+using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(EnemyBase))]
 public class EnemyHitFlash : MonoBehaviour
 {
     [SerializeField] private SpriteRenderer _sprite;
@@ -9,26 +10,48 @@ public class EnemyHitFlash : MonoBehaviour
 
     private EnemyBase _enemy;
     private Color _baseColor;
-    private float _lastHp;
-    private float _flashEnd;
+    private Coroutine _flashCoroutine;
 
     private void Awake()
     {
         _enemy = GetComponent<EnemyBase>();
-        if (_sprite == null) _sprite = GetComponentInChildren<SpriteRenderer>();
+
+        if (_sprite == null)
+        {
+            _sprite = GetComponentInChildren<SpriteRenderer>();
+        }
+
         _baseColor = _sprite.color;
     }
 
-    private void Start()
+    private void OnEnable()
+{
+    _enemy.OnHealthChanged += Flash;
+}
+
+private void OnDisable()
+{
+    _enemy.OnHealthChanged -= Flash;
+}
+
+private void Flash()
+{
+    if (_flashCoroutine != null)
     {
-        _lastHp = _enemy.Hp;
+        StopCoroutine(_flashCoroutine);
     }
 
-    private void Update()
-    {
-        if (_enemy.Hp < _lastHp) _flashEnd = Time.time + _flashTime;
-        _lastHp = _enemy.Hp;
+    _flashCoroutine = StartCoroutine(FlashRoutine());
+}
 
-        _sprite.color = Time.time < _flashEnd ? _flashColor : _baseColor;
+    private IEnumerator FlashRoutine()
+    {
+        _sprite.color = _flashColor;
+
+        yield return new WaitForSeconds(_flashTime);
+
+        _sprite.color = _baseColor;
+
+        _flashCoroutine = null;
     }
 }

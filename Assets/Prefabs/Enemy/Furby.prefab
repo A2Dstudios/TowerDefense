@@ -334,6 +334,7 @@ MonoBehaviour:
   _maxHP: 15
   _speed: 1
   _xp: 5
+  _path: {fileID: 0}
   _screamInterval: 4
   _screamDuration: 1
   _speedMultiplier: 2
@@ -349,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c1853f7144ec4ca65dfd08c5f84d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
-  _enemy: {fileID: 0}
+  _enemy: {fileID: -8208509176054640622}
   _pivot: {fileID: 7031627563172392210}
 --- !u!114 &-3460398811520754003
 MonoBehaviour:
