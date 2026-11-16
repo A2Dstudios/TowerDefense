@@ -64,6 +64,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5813125496393643725, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: m_Radius
+      value: 0.22598559
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813125496393643725, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.026386216
+      objectReference: {fileID: 0}
+    - target: {fileID: 5813125496393643725, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.2280528
+      objectReference: {fileID: 0}
     - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: _weaponData
       value: 
