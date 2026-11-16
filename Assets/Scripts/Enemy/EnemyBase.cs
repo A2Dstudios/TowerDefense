@@ -97,15 +97,18 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 }
 
-    protected virtual void Die()
-    {
-        if (_isDead) return;
+  
+protected virtual void Die()
+{
+    if (_isDead) return;
 
-        _isDead = true;
+    _isDead = true;
 
-        // TODO: Give XP
-        // TODO: Death event
+    PlayerProgression playerProgression = FindAnyObjectByType<PlayerProgression>();
 
-        Destroy(gameObject);
-    }
+    playerProgression.AddXP(_xp);
+
+    Destroy(gameObject);
+}
+
 }
