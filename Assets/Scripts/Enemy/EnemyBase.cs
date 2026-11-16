@@ -11,7 +11,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     [SerializeField] protected float _xp = 1f;
 
     [Header("Movement")]
-    [SerializeField] protected PathScript _path;
+    [SerializeField] public PathScript _path;
 
     protected float _hp;
     protected bool _isDead;
