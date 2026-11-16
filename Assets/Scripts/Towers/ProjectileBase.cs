@@ -3,11 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ProjectileBase : MonoBehaviour
 {
-    private float _damage = 10f;
-    private float _speed = 10f;
-    private int _piercing = 0;
+    protected float _damage = 10f;
+    protected float _speed = 10f;
+    protected int _piercing = 0;
 
-    private Rigidbody2D _rb;
+    protected Rigidbody2D _rb;
 
     public void Init(WeaponData wd, Vector2 direction)
     {
@@ -29,12 +29,21 @@ public class ProjectileBase : MonoBehaviour
     {
         if(other.TryGetComponent(out IDamageable target))
         {
+            OnHit();
+
             if(_piercing >= 0)
             {
                 target.TakeDamage(_damage);
                 _piercing--;
             }
-            if (_piercing < 0) Destroy(gameObject);
+            if (_piercing < 0) DeleteBullet();
         }
     }
+
+    protected virtual void DeleteBullet()
+    {
+        Destroy(gameObject);
+    }
+
+    protected virtual void OnHit() { }
 }
