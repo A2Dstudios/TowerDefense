@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3692d270367699e4aa3f15fa60b698d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Bomb
-  _range: 1
+  _range: 1.2
   _enemyLayer:
     serializedVersion: 2
     m_Bits: 64
