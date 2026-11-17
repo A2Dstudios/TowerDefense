@@ -8,14 +8,14 @@ public enum TargetingMode { FIRST, CLOSEST, STRONGEST, WEAKEST }
 public class TowerBase : MonoBehaviour
 {
     [Header("Tower")]
-    [SerializeField] private TowerType _type;
+    [SerializeField] protected TowerType _type;
 
     [Header("Detection")]
     [SerializeField] private CircleCollider2D _rangeCollider;
 
     [Header("Shooting")]
     [SerializeField] private TargetingMode _targetingMode;
-    [SerializeField] private WeaponData _weaponData;
+    [SerializeField] protected WeaponData _weaponData;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Transform _visualTransform;
 
@@ -93,7 +93,7 @@ public class TowerBase : MonoBehaviour
         return null;
     }
 
-    private void Shoot(EnemyBase target)
+    protected virtual void Shoot(EnemyBase target)
     {
         Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
 

@@ -9,7 +9,7 @@ public class ProjectileBase : MonoBehaviour
 
     protected Rigidbody2D _rb;
 
-    public void Init(WeaponData wd, Vector2 direction)
+    public void Init(WeaponData wd, Vector2 direction, float lifetime = 3f)
     {
         _rb = GetComponent<Rigidbody2D>();
 
@@ -22,8 +22,11 @@ public class ProjectileBase : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.eulerAngles = new Vector3(0, 0, angle);
 
-        Destroy(gameObject, 5f);
+        OnInit(wd);
+        Destroy(gameObject, lifetime);
     }
+
+    protected virtual void OnInit(WeaponData wd) { }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

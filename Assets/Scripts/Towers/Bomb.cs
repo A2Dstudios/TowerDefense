@@ -4,9 +4,10 @@ using UnityEngine.VFX;
 public class Bomb : ProjectileBase
 {
     [Header("Bomb")]
-    [SerializeField] private float _range;
     [SerializeField] private LayerMask _enemyLayer;
     [SerializeField] private VisualEffect _explosionVfx;
+
+    private float _range = 1f;
 
     protected override void OnHit()
     {
@@ -21,6 +22,11 @@ public class Bomb : ProjectileBase
 
             enemy.TakeDamage(_damage);
         }
+    }
+
+    protected override void OnInit(WeaponData wd)
+    {
+        if (wd is BombWeaponData bombData) _range = bombData.explosionRadius;
     }
 
     private void OnDrawGizmosSelected()
