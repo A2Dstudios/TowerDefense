@@ -8,11 +8,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private PathScript[] _spawnPoints;
     [SerializeField] private float _spawnInterval = 1f;
     [SerializeField] private int _waveInterval = 15;
-    [SerializeField] private int _initialEnemies = 2;
-    [SerializeField] private int _enemiesPerWave = 3;
     [SerializeField] private int _wavesPerRound = 3;
+    [SerializeField] private float _initialEnergy = 1f;
+    [SerializeField] private float _energyPerWave = 0.5f;
     private int _wave = 0;
-    private int _round = 1;
     private ArrayList _waveEnemies = new ArrayList();
     private bool _roundBoss = false;
 
@@ -22,15 +21,14 @@ public class EnemySpawner : MonoBehaviour
     private void Update()
     {
         // Si la onada està en curs, s'envïen enemics
-        if (_waveEnemies.Count > 0)
+        if (_waveEnemies.Count > 0 || _roundBoss)
         {
             _nextSpawn += Time.deltaTime;
             if (_nextSpawn >= _spawnInterval)
             {
-                if ((int) _waveEnemies[0] != -1)
+                if (_waveEnemies.Count > 0)
                 {
-                    int enemiesSent = Random.Range(Mathf.Max(0, Mathf.Min(_round - 5, _spawnPoints.Length-1)), Mathf.Min(_round, _spawnPoints.Length-1, _waveEnemies.Count-1));
-                    Debug.Log("Surten "+(enemiesSent+1)+" enemics!");
+                    int enemiesSent = Random.Range(Mathf.Max(0, Mathf.Min(_wave/_wavesPerRound - 5, _spawnPoints.Length-1, _waveEnemies.Count - 1)), Mathf.Min(_wave / _wavesPerRound, _spawnPoints.Length-1, _waveEnemies.Count-1));
                     for (int i = 0; i <= enemiesSent; i++)
                     {
                         int enemyIndex = Random.Range(0, _waveEnemies.Count - 1);
@@ -38,16 +36,11 @@ public class EnemySpawner : MonoBehaviour
                         prefab._path = _spawnPoints[i];
                         _waveEnemies.RemoveAt(enemyIndex);
                     }
-                    if (_waveEnemies.Count == 0 && _roundBoss)
-                    {
-                        _waveEnemies.Add(-1);
-                        _roundBoss = false;
-                    }
                 } else
                 {
-                    _waveEnemies.Clear();
                     EnemyBase prefab = Instantiate(_bossPrefabs[Random.Range(0, _bossPrefabs.Length)]);
-                    prefab._path = _spawnPoints[Random.Range(0, Mathf.Max(0, Mathf.Min(_round - 5, _spawnPoints.Length)))];
+                    prefab._path = _spawnPoints[Random.Range(0, Mathf.Max(0, Mathf.Min(_wave / _wavesPerRound - 5, _spawnPoints.Length)))];
+                    _roundBoss = false;
                 }
                 _nextSpawn = 0;
             }
@@ -58,26 +51,26 @@ public class EnemySpawner : MonoBehaviour
             _nextWave += Time.deltaTime;
             if (_nextWave >= _waveInterval)
             {
-                int typesInWave = Mathf.Min(_round, _enemyPrefabs.Length);
-                for (int i = 0; i < typesInWave; i++)
+                float waveXP = _initialEnergy+_energyPerWave*_wave;
+                while (waveXP > 0)
                 {
-                    int numEnemies = _initialEnemies * (_round - i) + _enemiesPerWave * _wave;
-                    for (int j = 0; j < numEnemies; j++)
+                    int worstEnemy = -1;
+                    foreach (EnemyBase enemy in _enemyPrefabs)
                     {
-                        _waveEnemies.Add(i);
+                        if (enemy.XP <= waveXP)
+                            worstEnemy++;
                     }
+                    int newEnemy = Random.Range(0, worstEnemy);
+                    _waveEnemies.Add(newEnemy);
+                    waveXP -= _enemyPrefabs[newEnemy].XP;
                 }
+                int typesInWave = Mathf.Min(_wave / _wavesPerRound, _enemyPrefabs.Length);
                 _nextWave = 0;
                 _wave++;
-                if (_wave == _wavesPerRound)
-                {
-                    _wave = 0;
-                    _round++;
-                    if (typesInWave >= _enemyPrefabs.Length && typesInWave >= _spawnPoints.Length && _wave == _wavesPerRound) {
-                        _roundBoss = true;
-                    }
+                if (typesInWave >= _enemyPrefabs.Length && typesInWave >= _spawnPoints.Length && _wave % _wavesPerRound == 0) {
+                    _roundBoss = true;
                 }
-                Debug.Log("Ronda " + _round + ": Venen "+_waveEnemies.Count+" enemics de l'onada " + _wave);
+                Debug.Log("Onada " + _wave + ": Venen "+_waveEnemies.Count+" enemics");
             }
         }
     }

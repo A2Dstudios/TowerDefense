@@ -106,7 +106,7 @@ protected virtual void Die()
 
     PlayerProgression playerProgression = FindAnyObjectByType<PlayerProgression>();
 
-    playerProgression.AddXP(_xp);
+    playerProgression?.AddXP(_xp);
 
     Destroy(gameObject);
 }
