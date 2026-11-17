@@ -5001,6 +5001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347590271}
   - component: {fileID: 1347590270}
+  - component: {fileID: 1347590272}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5036,6 +5037,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1347590272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347590269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09349c581322d46479676d1ebff66ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerProgression
+  _playerXP: 0
+  _playerLVL: 0
+  _baseLevelXP: 10
+  _nextLevelXP: 0
+  _multiplierXP: 1.25
 --- !u!1001 &1351165168
 PrefabInstance:
   m_ObjectHideFlags: 0
