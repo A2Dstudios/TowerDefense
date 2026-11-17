@@ -13,13 +13,16 @@ public class TowerBase : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] private TargetingMode _targetingMode;
     [SerializeField] private WeaponData _weaponData;
-    [SerializeField] private Transform _objective;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Transform _visualTransform;
 
     private readonly List<EnemyBase> _enemiesInRange = new();
 
     private float _nextFireTime = 0f;
+
+    private Vector3 _objective;
+
+    public Transform VisualTransform => _visualTransform;
 
     // setter para actualizar el radio del collider automaticamente
     public float AttackRange
@@ -35,6 +38,11 @@ public class TowerBase : MonoBehaviour
     private void Awake()
     {
         _rangeCollider.radius = _attackRange;
+    }
+
+    private void Start()
+    {
+        _objective = GameManager.Instance.Objective;
     }
 
     private void Update()
@@ -61,7 +69,7 @@ public class TowerBase : MonoBehaviour
         {
             case TargetingMode.FIRST:
                 if (_objective == null) return null;
-                return _enemiesInRange.OrderBy(e => Vector2.Distance(e.transform.position, _objective.position)).FirstOrDefault();
+                return _enemiesInRange.OrderBy(e => Vector2.Distance(e.transform.position, _objective)).FirstOrDefault();
 
             case TargetingMode.CLOSEST:
                 return _enemiesInRange .OrderBy(e => Vector2.Distance(e.transform.position,transform.position)).FirstOrDefault();
