@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public enum TargetingMode { FIRST, CLOSEST, STRONGEST, WEAKEST }
 
@@ -17,6 +18,10 @@ public class TowerBase : MonoBehaviour
     [SerializeField] private WeaponData _weaponData;
     [SerializeField] private Transform _firePoint;
     [SerializeField] private Transform _visualTransform;
+
+    [Header("VFX")]
+    [SerializeField] private VisualEffect _upgradeEffect;
+    [SerializeField] private DamageFlash _flashScript;
 
     private readonly List<EnemyBase> _enemiesInRange = new();
 
@@ -114,6 +119,9 @@ public class TowerBase : MonoBehaviour
         AttackRange = _weaponData.attackRange;
 
         _visualTransform.transform.localScale *= 1.1f;
+
+        _upgradeEffect.Play();
+        _flashScript.CallDamageFlash();
     }
 
     private void OnTriggerEnter2D(Collider2D other)

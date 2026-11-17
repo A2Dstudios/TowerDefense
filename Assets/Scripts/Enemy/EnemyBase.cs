@@ -22,6 +22,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public float MaxHp => _maxHP;
     public float Hp => _hp;
     public float Speed => _speed;
+    public float XP => _xp;
 
     public event Action OnHealthChanged;
     public event Action<float> OnDeath;
