@@ -1,12 +1,15 @@
-using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.Splines;
 
 public class TowerPlacer : MonoBehaviour
 {
     [SerializeField] private GameObject _preview;
+    [SerializeField] private Transform _pathsRoot;
     [SerializeField] private LayerMask _obstacleLayer;
+
+    private const float RoadWidth = 0.5f;
 
     private Camera _cam;
     private PlayerInputs _input;
@@ -19,6 +22,8 @@ public class TowerPlacer : MonoBehaviour
     private float _selectedTowerRadius;
     private SpriteRenderer[] _previewSprites;
 
+    private SplineContainer[] _paths;
+
     private void Awake()
     {
         _input = new PlayerInputs();
@@ -30,6 +35,8 @@ public class TowerPlacer : MonoBehaviour
     void Start()
     {
         _cam = Camera.main;
+
+        _paths = _pathsRoot.GetComponentsInChildren<SplineContainer>();
     }
 
     private void OnDestroy()
@@ -52,6 +59,23 @@ public class TowerPlacer : MonoBehaviour
         _preview.transform.position = _mouseWorldPos;
 
         bool blocked = Physics2D.OverlapCircle(_mouseWorldPos, _selectedTowerRadius, _obstacleLayer);
+
+        if (!blocked)
+        {
+            float minDist = float.MaxValue;
+            foreach (SplineContainer path in _paths)
+            {
+                float3 relativo = _mouseWorldPos - path.gameObject.transform.position;
+                float dist = SplineUtility.GetNearestPoint(path.Spline, relativo, out float3 nearest, out float t);
+
+                if (dist < minDist) minDist = dist;                
+            }
+
+            if (minDist <= _selectedTowerRadius + RoadWidth)
+            {
+                blocked = true;
+            }
+        }
 
         _canPlace = _placing && !blocked;
 
