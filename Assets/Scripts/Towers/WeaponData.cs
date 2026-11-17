@@ -4,8 +4,11 @@ using UnityEngine;
 public class WeaponData : ScriptableObject
 {
     public GameObject projectilePrefab;
+    public float attackRange = 2f;
     public float fireRate = 1f;
     public float projectileSpeed = 10f;
     public float attackDamage = 1f;
     public int piercing = 0;
+
+    public WeaponData upgradedWeapon;
 }

@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb45304862a10a042a607202be3b76b2, type: 3}
-  m_Name: CrocTooth
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  projectilePrefab: {fileID: 6422664833207639127, guid: 9c82121208131804aacec1fd58ae5679, type: 3}
-  fireRate: 0.3
-  projectileSpeed: 12
-  attackDamage: 0.5
-  piercing: 4
+  m_Name: Cat4
+  m_EditorClassIdentifier: Assembly-CSharp::Weapon
+  projectilePrefab: {fileID: 2623523231480047056, guid: 9635a0d8f58b34a40a1ad0760d1e335b, type: 3}
+  attackRange: 2.4
+  fireRate: 0.8
+  projectileSpeed: 10
+  attackDamage: 4
+  piercing: 0
+  upgradedWeapon: {fileID: 11400000, guid: bf297a25a2d863e40a09e41a704e1655, type: 2}
