@@ -65,10 +65,10 @@ public class TowerPlacer : MonoBehaviour
             float minDist = float.MaxValue;
             foreach (SplineContainer path in _paths)
             {
-                float3 relativo = _mouseWorldPos - path.gameObject.transform.position;
-                float dist = SplineUtility.GetNearestPoint(path.Spline, relativo, out float3 nearest, out float t);
+                float3 relative = _mouseWorldPos - path.gameObject.transform.position;
+                float dist = SplineUtility.GetNearestPoint(path.Spline, relative, out float3 nearest, out float t);
 
-                if (dist < minDist) minDist = dist;                
+                if (dist < minDist) minDist = dist;
             }
 
             if (minDist <= _selectedTowerRadius + RoadWidth)
