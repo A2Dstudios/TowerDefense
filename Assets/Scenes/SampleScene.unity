@@ -2272,10 +2272,10 @@ MonoBehaviour:
   - {fileID: 207889009}
   - {fileID: 1964515952}
   - {fileID: 1682098591}
-  _spawnInterval: 1
-  _waveInterval: 15
-  _initialEnemies: 1
-  _enemiesPerWave: 1
+  _spawnInterval: 0.2
+  _waveInterval: 1
+  _initialEnemies: 10
+  _enemiesPerWave: 10
   _wavesPerRound: 6
 --- !u!4 &519294653
 Transform:

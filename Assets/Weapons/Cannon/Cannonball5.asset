@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb45304862a10a042a607202be3b76b2, type: 3}
-  m_Name: CrocTooth
+  m_Name: Cannonball5
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
-  projectilePrefab: {fileID: 6422664833207639127, guid: 9c82121208131804aacec1fd58ae5679, type: 3}
-  attackRange: 1.4
-  fireRate: 0.3
-  projectileSpeed: 12
-  attackDamage: 0.5
-  piercing: 4
+  projectilePrefab: {fileID: 6995532772497374947, guid: d4fa375b6080dcb4495b504918b82ac6, type: 3}
+  attackRange: 2.5
+  fireRate: 0.2
+  projectileSpeed: 14
+  attackDamage: 4
+  piercing: 0
   upgradedWeapon: {fileID: 0}

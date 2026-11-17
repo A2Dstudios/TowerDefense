@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fb45304862a10a042a607202be3b76b2, type: 3}
-  m_Name: Cat1
-  m_EditorClassIdentifier: Assembly-CSharp::Weapon
-  projectilePrefab: {fileID: 2623523231480047056, guid: 9635a0d8f58b34a40a1ad0760d1e335b, type: 3}
-  attackRange: 1.6
-  fireRate: 1.5
-  projectileSpeed: 10
-  attackDamage: 1
+  m_Name: Cannonball2
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponData
+  projectilePrefab: {fileID: 6995532772497374947, guid: d4fa375b6080dcb4495b504918b82ac6, type: 3}
+  attackRange: 1.7
+  fireRate: 0.5
+  projectileSpeed: 11
+  attackDamage: 1.5
   piercing: 0
-  upgradedWeapon: {fileID: 11400000}
+  upgradedWeapon: {fileID: 11400000, guid: e473930feeb99304bbf2b08d93d2382f, type: 2}
