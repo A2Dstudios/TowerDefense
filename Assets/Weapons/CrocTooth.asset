@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: CrocTooth
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   projectilePrefab: {fileID: 6422664833207639127, guid: 9c82121208131804aacec1fd58ae5679, type: 3}
+  attackRange: 1.4
   fireRate: 0.3
   projectileSpeed: 12
   attackDamage: 0.5
   piercing: 4
+  upgradedWeapon: {fileID: 0}

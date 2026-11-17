@@ -6,9 +6,11 @@ public enum TargetingMode { FIRST, CLOSEST, STRONGEST, WEAKEST }
 
 public class TowerBase : MonoBehaviour
 {
+    [Header("Tower")]
+    [SerializeField] private TowerType _type;
+
     [Header("Detection")]
     [SerializeField] private CircleCollider2D _rangeCollider;
-    [SerializeField] private float _attackRange = 5f;
 
     [Header("Shooting")]
     [SerializeField] private TargetingMode _targetingMode;
@@ -22,22 +24,24 @@ public class TowerBase : MonoBehaviour
 
     private Vector3 _objective;
 
+    private int _tier = 0;
+
     public Transform VisualTransform => _visualTransform;
+    public TowerType TowerType => _type;
 
     // setter para actualizar el radio del collider automaticamente
     public float AttackRange
     {
-        get => _attackRange;
+        get => _weaponData.attackRange;
         set
         {
-            _attackRange = value;
             _rangeCollider.radius = value;
         }
     }
 
     private void Awake()
     {
-        _rangeCollider.radius = _attackRange;
+        AttackRange = _weaponData.attackRange;
     }
 
     private void Start()
@@ -97,8 +101,19 @@ public class TowerBase : MonoBehaviour
     {
         Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
 
-        if (direction.x < 0) _visualTransform.localScale = new Vector3(-1f, 1f, 1f);
-        if (direction.x > 0) _visualTransform.localScale = new Vector3(1f, 1f, 1f);
+        Vector3 scale = _visualTransform.localScale;
+        if (direction.x < 0) _visualTransform.localScale = new Vector3(-Mathf.Abs(scale.x), scale.y, scale.z);
+        if (direction.x > 0) _visualTransform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+    }
+
+    public void Upgrade()
+    {
+        if (_weaponData.upgradedWeapon == null) return;
+
+        _weaponData = _weaponData.upgradedWeapon;
+        AttackRange = _weaponData.attackRange;
+
+        _visualTransform.transform.localScale *= 1.1f;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -120,6 +135,6 @@ public class TowerBase : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.cyan;
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
+        Gizmos.DrawWireSphere(transform.position, _weaponData.attackRange);
     }
 }

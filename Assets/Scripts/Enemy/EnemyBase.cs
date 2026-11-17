@@ -22,9 +22,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
     public float MaxHp => _maxHP;
     public float Hp => _hp;
     public float Speed => _speed;
-    public float XP => _xp;
 
     public event Action OnHealthChanged;
+    public event Action<float> OnDeath;
 
     protected virtual void Awake()
     {
@@ -79,36 +79,36 @@ public class EnemyBase : MonoBehaviour, IDamageable
     }
 
    public virtual void TakeDamage(float damage)
-{
-    if (_isDead) return;
-
-    _hp -= damage;
-
-    if (_hp < 0f)
     {
-        _hp = 0f;
-    }
+        if (_isDead) return;
 
-    OnHealthChanged?.Invoke();
+        _hp -= damage;
 
-    if (_hp <= 0f)
-    {
-        Die();
+        if (_hp < 0f)
+        {
+            _hp = 0f;
+        }
+
+        OnHealthChanged?.Invoke();
+
+        if (_hp <= 0f)
+        {
+            Die();
+        }
     }
-}
 
   
-protected virtual void Die()
-{
-    if (_isDead) return;
+    protected virtual void Die()
+    {
+        if (_isDead) return;
 
-    _isDead = true;
+        _isDead = true;
 
-    PlayerProgression playerProgression = FindAnyObjectByType<PlayerProgression>();
+        PlayerProgression playerProgression = FindAnyObjectByType<PlayerProgression>();
 
-    playerProgression.AddXP(_xp);
+        OnDeath?.Invoke(_xp);
 
-    Destroy(gameObject);
-}
+        Destroy(gameObject);
+    }
 
 }
