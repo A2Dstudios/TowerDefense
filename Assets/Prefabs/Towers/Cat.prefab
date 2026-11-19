@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1977029407664299972, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5813125496393643725, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_Radius
       value: 0.22598559
@@ -83,7 +87,7 @@ PrefabInstance:
     - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: _weaponData
       value: 
-      objectReference: {fileID: 11400000, guid: ab80287cbfc2c6b40866d78ac6b87236, type: 2}
+      objectReference: {fileID: 11400000, guid: e8bc9f7fb7dc89d41b9d50892d55db84, type: 2}
     - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: _targetingMode
       value: 1

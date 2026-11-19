@@ -21,16 +21,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
-      propertyPath: m_Color.b
-      value: 0.056772053
-      objectReference: {fileID: 0}
-    - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
-      propertyPath: m_Color.g
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 4b3f9f51fd51f864196dbfb646d3224c, type: 3}
+    - target: {fileID: 6618190453122453549, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
-      propertyPath: m_Color.r
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8467360139326083040, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_LocalPosition.x
@@ -75,6 +71,22 @@ PrefabInstance:
     - target: {fileID: 8609087588675057929, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_Name
       value: TeddyBear
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919378859745856701, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Size.x
+      value: 0.4796868
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919378859745856701, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8510549
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919378859745856701, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8919378859745856701, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.028664887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
