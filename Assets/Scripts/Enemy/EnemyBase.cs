@@ -1,5 +1,6 @@
 
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -12,6 +13,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     [Header("Movement")]
     [SerializeField] public PathScript _path;
+    [SerializeField] public Transform _visualTransform;
 
     protected float _hp;
     protected bool _isDead;
@@ -74,9 +76,16 @@ public class EnemyBase : MonoBehaviour, IDamageable
             _pathProgress = pathLength;
         }
 
-        transform.position = _pathSC.EvaluatePosition(
+        Vector3 newPos = _pathSC.EvaluatePosition(
             _pathProgress / pathLength
         );
+
+        // flip visuals
+        float dir = Mathf.Sign(newPos.x - transform.position.x);
+        Vector3 scale = _visualTransform.localScale.Abs();
+        _visualTransform.localScale = new Vector3(dir * scale.x, scale.y, scale.z);
+
+        transform.position = newPos;
     }
 
    public virtual void TakeDamage(float damage)

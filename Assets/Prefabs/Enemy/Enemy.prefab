@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.1, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.05, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7031627563172392210}
@@ -77,9 +77,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2117804621
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 1, b: 0.05980724, a: 1}
@@ -100,6 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6618190453122453549}
+  - component: {fileID: 6505688666224072199}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -123,6 +124,20 @@ Transform:
   - {fileID: 7085813369237329512}
   m_Father: {fileID: 8467360139326083040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6505688666224072199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5715718681970968693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff17ae384cd6c84478e62128c4d59091, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitFlash
+  _flashColor: {r: 1, g: 0, b: 0, a: 1}
+  _flashTime: 0.25
 --- !u!1 &6252933320357868715
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +196,7 @@ Transform:
   m_GameObject: {fileID: 6615624742589948554}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.086, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -213,7 +228,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 10e18ae9546e88b48b4f36fab710e201, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -232,11 +247,11 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2080240431
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 40c1432681c6f5a4e881e6b3911e882c, type: 3}
+  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -255,12 +270,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8467360139326083040}
-  - component: {fileID: 44693782816417475}
+  - component: {fileID: 558108532687710616}
   - component: {fileID: 6851977762668327305}
-  - component: {fileID: -3460398811520754003}
-  - component: {fileID: 6150312765886965447}
+  - component: {fileID: 8919378859745856701}
+  - component: {fileID: 5082305509807168761}
   m_Layer: 6
-  m_Name: TelephoneTank
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -283,7 +298,7 @@ Transform:
   - {fileID: 7031627563172392210}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &44693782816417475
+--- !u!114 &558108532687710616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,15 +307,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8609087588675057929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9efe528cb7298ae4d846a27e6d16c43b, type: 3}
+  m_Script: {fileID: 11500000, guid: 74a9e982822e62a4fb2388ef65452e43, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TelephoneTank
-  _maxHP: 30
-  _speed: 0.5
-  _xp: 10
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBase
+  _maxHP: 4
+  _speed: 1
+  _xp: 1
   _path: {fileID: 0}
-  _armor: 1
-  _minimumDamage: 0.25
+  _visualTransform: {fileID: 6618190453122453549}
 --- !u!114 &6851977762668327305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,24 +327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 452c1853f7144ec4ca65dfd08c5f84d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthBar
-  _enemy: {fileID: 44693782816417475}
+  _enemy: {fileID: 558108532687710616}
   _pivot: {fileID: 7031627563172392210}
---- !u!114 &-3460398811520754003
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8609087588675057929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff17ae384cd6c84478e62128c4d59091, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitFlash
-  _sprite: {fileID: 3614153914012006059}
-  _flashColor: {r: 1, g: 0, b: 0, a: 1}
-  _flashTime: 0.1
---- !u!70 &6150312765886965447
+--- !u!70 &8919378859745856701
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,6 +363,28 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.014945031, y: -0.0037358426}
-  m_Size: {x: 0.7683468, y: 0.46197098}
-  m_Direction: 1
+  m_Offset: {x: 0, y: -0.023065925}
+  m_Size: {x: 0.35711583, y: 0.62581897}
+  m_Direction: 0
+--- !u!95 &5082305509807168761
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8609087588675057929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

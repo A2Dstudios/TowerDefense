@@ -2330,15 +2330,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _enemyPrefabs:
+  - {fileID: 4078547897108861676, guid: 971887075343bdd48bdcdcf475390486, type: 3}
   - {fileID: 6027040085941403736, guid: 96f72c03b86b53440952f2a1e27eeff4, type: 3}
-  - {fileID: 558108532687710616, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
-  - {fileID: 558108532687710616, guid: 162467418d05c8847bd690304ea6fbf5, type: 3}
-  - {fileID: 6027040085941403736, guid: cfa22e7ccbfe0254fafca2e458b56a3a, type: 3}
+  - {fileID: 4724916054535690105, guid: 5ae5b381654cc044ea55e662ceaa56fa, type: 3}
+  - {fileID: 1763067102372281203, guid: fb821c0deb249494a9ad6ee20c8fccb5, type: 3}
   - {fileID: 855002102028955623, guid: 6ec0d05d2591dff4491bdc113ccbb15b, type: 3}
-  - {fileID: -8208509176054640622, guid: 986018ed80e2f504ca9752ced8bf1f5d, type: 3}
-  - {fileID: 44693782816417475, guid: abff7c749b6acdc41a4e48399cf05d8f, type: 3}
+  - {fileID: 6027040085941403736, guid: cfa22e7ccbfe0254fafca2e458b56a3a, type: 3}
+  - {fileID: 621623828776654505, guid: d81a4d08c068fa94996f8094aaed432b, type: 3}
   _bossPrefabs:
-  - {fileID: 2884743907575172592, guid: e15a7de5b45a974419ddebb723795961, type: 3}
+  - {fileID: 8308555057642856126, guid: d36b4efcebdc02d41b83155e4a07121b, type: 3}
   _spawnPoints:
   - {fileID: 203100502}
   - {fileID: 1764202108}
