@@ -35,10 +35,4 @@ public class Bomb : ProjectileBase
         Gizmos.DrawWireSphere(transform.position, _range);
     }
 
-    protected override void DeleteBullet()
-    {
-        GetComponent<Collider2D>().enabled = false;
-        GetComponentInChildren<SpriteRenderer>().enabled = false;
-        Destroy(gameObject, 0.5f);
-    }
 }

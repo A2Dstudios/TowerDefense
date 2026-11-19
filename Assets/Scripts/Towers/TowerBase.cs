@@ -16,8 +16,9 @@ public class TowerBase : MonoBehaviour
     [Header("Shooting")]
     [SerializeField] private TargetingMode _targetingMode;
     [SerializeField] protected WeaponData _weaponData;
-    [SerializeField] private Transform _firePoint;
+    [SerializeField] private Transform[] _firePoint;
     [SerializeField] private Transform _visualTransform;
+    [SerializeField] private bool _faceEnemy = true;
 
     [Header("VFX")]
     [SerializeField] private VisualEffect _upgradeEffect;
@@ -62,7 +63,7 @@ public class TowerBase : MonoBehaviour
 
         if (Time.time < _nextFireTime) return;
 
-        Face(target);
+        if(_faceEnemy) Face(target);
         Shoot(target);
 
         _nextFireTime = Time.time + _weaponData.fireRate;
@@ -95,16 +96,17 @@ public class TowerBase : MonoBehaviour
 
     protected virtual void Shoot(EnemyBase target)
     {
-        Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
+        Vector2 firepoint = _firePoint[Random.Range(0, _firePoint.Length)].position;
+        Vector2 direction = ((Vector2)target.transform.position - firepoint).normalized;
 
-        GameObject projectileObject = Instantiate(_weaponData.projectilePrefab, _firePoint.position, Quaternion.identity);
+        GameObject projectileObject = Instantiate(_weaponData.projectilePrefab, firepoint, Quaternion.identity);
 
         projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, direction);
     }
 
     private void Face(EnemyBase target)
     {
-        Vector2 direction = ((Vector2)target.transform.position - (Vector2)_firePoint.position).normalized;
+        Vector2 direction = ((Vector2)target.transform.position - (Vector2)transform.position).normalized;
 
         Vector3 scale = _visualTransform.localScale;
         if (direction.x < 0) _visualTransform.localScale = new Vector3(-Mathf.Abs(scale.x), scale.y, scale.z);

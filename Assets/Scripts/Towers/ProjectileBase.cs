@@ -45,7 +45,10 @@ public class ProjectileBase : MonoBehaviour
 
     protected virtual void DeleteBullet()
     {
-        Destroy(gameObject);
+        GetComponent<Collider2D>().enabled = false;
+        _rb.linearVelocity = Vector2.zero;
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+        Destroy(gameObject, 0.5f);
     }
 
     protected virtual void OnHit() { }

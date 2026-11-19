@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2080240431
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 0}
@@ -345,7 +345,8 @@ MonoBehaviour:
   _rangeCollider: {fileID: 9125752303436796628}
   _targetingMode: 0
   _weaponData: {fileID: 11400000, guid: bb05d90ee0e86d14a8baff62e49d7119, type: 2}
-  _firePoint: {fileID: 2365418757195288}
+  _firePoint:
+  - {fileID: 2365418757195288}
   _visualTransform: {fileID: 6363404283278900179}
   _upgradeEffect: {fileID: 4352330643589348665}
   _flashScript: {fileID: 7716108419913607268}

@@ -20,13 +20,17 @@ PrefabInstance:
       propertyPath: _speed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1139818842522691849, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.13
+      objectReference: {fileID: 0}
     - target: {fileID: 3614153914012006059, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 77f1edd5f77637945bd0278c3a075421, type: 3}
     - target: {fileID: 7085813369237329512, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.175
+      value: 0.295
       objectReference: {fileID: 0}
     - target: {fileID: 8467360139326083040, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
       propertyPath: m_LocalPosition.x

@@ -127,6 +127,10 @@ PrefabInstance:
       propertyPath: _targetingMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: '_firePoint.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8633973075138116307}
     - target: {fileID: 6363404283278900179, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.19

@@ -18,7 +18,7 @@ public class CubeTower : TowerBase
             Vector2 dir = Quaternion.Euler(0f, 0f, angle) * Vector2.up;
 
             GameObject projectileObject = Instantiate(_weaponData.projectilePrefab, transform.position, Quaternion.identity);
-            projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, dir, 0.4f);
+            projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, dir, 0.25f);
         }
 
         odd = !odd;

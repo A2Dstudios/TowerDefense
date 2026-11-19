@@ -2330,12 +2330,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
   _enemyPrefabs:
+  - {fileID: 6027040085941403736, guid: cfa22e7ccbfe0254fafca2e458b56a3a, type: 3}
   - {fileID: 4078547897108861676, guid: 971887075343bdd48bdcdcf475390486, type: 3}
   - {fileID: 6027040085941403736, guid: 96f72c03b86b53440952f2a1e27eeff4, type: 3}
   - {fileID: 4724916054535690105, guid: 5ae5b381654cc044ea55e662ceaa56fa, type: 3}
   - {fileID: 1763067102372281203, guid: fb821c0deb249494a9ad6ee20c8fccb5, type: 3}
   - {fileID: 855002102028955623, guid: 6ec0d05d2591dff4491bdc113ccbb15b, type: 3}
-  - {fileID: 6027040085941403736, guid: cfa22e7ccbfe0254fafca2e458b56a3a, type: 3}
   - {fileID: 621623828776654505, guid: d81a4d08c068fa94996f8094aaed432b, type: 3}
   _bossPrefabs:
   - {fileID: 8308555057642856126, guid: d36b4efcebdc02d41b83155e4a07121b, type: 3}

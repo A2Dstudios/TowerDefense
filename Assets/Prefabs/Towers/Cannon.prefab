@@ -99,6 +99,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1977029407664299972, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5813125496393643725, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_Radius
       value: 0.23270121
@@ -131,6 +135,10 @@ PrefabInstance:
       propertyPath: _visualTransform
       value: 
       objectReference: {fileID: 4106774579273524589}
+    - target: {fileID: 6172877445102093678, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+      propertyPath: '_firePoint.Array.data[0]'
+      value: 
+      objectReference: {fileID: 4329741302388533109}
     - target: {fileID: 6363404283278900179, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
