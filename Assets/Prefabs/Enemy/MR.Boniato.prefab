@@ -1068,6 +1068,19 @@ MonoBehaviour:
   _xp: 100
   _path: {fileID: 0}
   _visualTransform: {fileID: 5548583344698338234}
+  _pathProgress: 0
+  _partEnemyPrefab: {fileID: 558108532687710616, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+  _parts:
+  - {fileID: 170049821650094157}
+  - {fileID: 265978550600694564}
+  - {fileID: 6436492905953095447}
+  - {fileID: 2357375708980100345}
+  - {fileID: 2064197916259080634}
+  - {fileID: 464992035457407616}
+  - {fileID: 5355528369498467605}
+  - {fileID: 3648880143728817565}
+  - {fileID: 3804918070197099746}
+  - {fileID: 200812286318270936}
 --- !u!4 &8398601663438433791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7085813369237329512, guid: 3d302985b626aff42bf221a5948cacad, type: 3}

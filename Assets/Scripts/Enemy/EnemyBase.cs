@@ -19,7 +19,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
     protected bool _isDead;
 
     private SplineContainer _pathSC;
-    private float _pathProgress = 0f;
+    [HideInInspector] public float _pathProgress = 0f;
 
     public float MaxHp => _maxHP;
     public float Hp => _hp;
