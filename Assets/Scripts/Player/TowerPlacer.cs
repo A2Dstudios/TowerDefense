@@ -23,7 +23,7 @@ public class TowerPlacer : MonoBehaviour
     private TowerBase _towerToUpgrade;
     private bool _canUpgrade;
 
-    private TowerBase _selectedTower;
+    public TowerBase _selectedTower;
     private float _selectedTowerRadius;
     private SpriteRenderer[] _previewSprites;
 
@@ -172,7 +172,8 @@ public class TowerPlacer : MonoBehaviour
         else Instantiate(_selectedTower, _mouseWorldPos, Quaternion.identity);
         
         _preview.SetActive(false);
-        Destroy(_preview.transform.GetChild(0).gameObject);
+        for (int i = 0; i < _preview.transform.childCount; i++)
+            Destroy(_preview.transform.GetChild(0).gameObject);
         _selectedTower = null;
         _towerToUpgrade = null;
         _canUpgrade = false;
@@ -183,6 +184,11 @@ public class TowerPlacer : MonoBehaviour
         _placing = true;
         _selectedTower = tower;
 
+
+        for (int i = 0; i < _preview.transform.childCount; i++)
+            Destroy(_preview.transform.GetChild(0).gameObject);
+
+        if (tower != null) {
         Transform preview = Instantiate(_selectedTower.VisualTransform, _preview.transform);
         
         CircleCollider2D col = preview.GetComponent<CircleCollider2D>();
@@ -193,7 +199,8 @@ public class TowerPlacer : MonoBehaviour
 
         foreach (SpriteRenderer sprite in _previewSprites) sprite.sortingOrder = 100;
 
-        _preview.SetActive(true);
+            _preview.SetActive(true);
+        }
     }
 
     private void OnDrawGizmos()

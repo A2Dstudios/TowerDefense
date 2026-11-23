@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Splines;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
                         int enemyIndex = Random.Range(0, _waveEnemies.Count - 1);
                         EnemyBase prefab = Instantiate(_enemyPrefabs[(int) _waveEnemies[enemyIndex]]);
                         prefab._path = _spawnPoints[i];
+                        prefab.transform.position = prefab._path.GetComponent<SplineContainer>().EvaluatePosition(0);
                         _waveEnemies.RemoveAt(enemyIndex);
                     }
                 } else

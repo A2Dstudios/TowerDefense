@@ -39,6 +39,7 @@ public class TowerMenu : MonoBehaviour
         int numPos = 0;
         foreach (TowerBase tb in _towerPrefabs)
         {
+            _towerQuantities.Add(5);
             GameObject go = new GameObject();
             Transform goSprite = Instantiate(tb.VisualTransform);
             goSprite.parent = go.transform;
@@ -88,6 +89,7 @@ public class TowerMenu : MonoBehaviour
         if (_newTower != -1)
         {
             _towerPlacer.SelectTower(_towerPrefabs[_newTower]);
+            _towerQuantities[_newTower] = (int)_towerQuantities[_newTower] - 1;
             _newTower = -1;
         }
     }
@@ -100,12 +102,28 @@ public class TowerMenu : MonoBehaviour
 
     void OpenMenu(InputAction.CallbackContext context)
     {
+        if (_towerPlacer._selectedTower != null) {
+            addTower(_towerPlacer._selectedTower);
+            _towerPlacer.SelectTower(null);
+        }
+
         _menuOpen = !_menuOpen;
         if (_menuOpen)
         {
             _mouseWorldPos = _cam.ScreenToWorldPoint(_input.Player.Mouse.ReadValue<Vector2>());
             _mouseWorldPos.z = 0;
             transform.position = _mouseWorldPos;
+            for (int i = 0; i < _towerButtons.Count; i++)
+            {
+                GameObject button = (GameObject) _towerButtons[i];
+                SpriteRenderer[] sprites = button.GetComponentsInChildren<SpriteRenderer>();
+                Color imageColor = Color.white;
+                if ((int) _towerQuantities[i] == 0)
+                    imageColor = Color.gray;
+
+                foreach (SpriteRenderer sprite in sprites)
+                    sprite.color = imageColor;
+            }
         }
     }
 
@@ -118,12 +136,19 @@ public class TowerMenu : MonoBehaviour
             for (int i = 0; i < _towerButtons.Count; i++)
             {
                 GameObject button = (GameObject)_towerButtons[i];
-                if ((button.transform.position - _mouseWorldPos).magnitude < 1)
+                if ((button.transform.position - _mouseWorldPos).magnitude < 0.5 && (int) _towerQuantities[i] > 0)
                 {
                     _newTower = i;
                 }
             }
             _menuOpen = false;
         }
+    }
+
+    public void addTower(TowerBase tower)
+    {
+        for (int i = 0; i < _towerPrefabs.Length; i++)
+            if (_towerPrefabs[i] == tower)
+                _towerQuantities[i] = (int)_towerQuantities[i] + 1;
     }
 }
