@@ -36,6 +36,7 @@ public class EnemySpawner : MonoBehaviour
                         EnemyBase prefab = Instantiate(_enemyPrefabs[(int) _waveEnemies[enemyIndex]]);
                         prefab._path = _spawnPoints[i];
                         prefab.transform.position = prefab._path.GetComponent<SplineContainer>().EvaluatePosition(0);
+                        prefab.transform.parent = transform;
                         _waveEnemies.RemoveAt(enemyIndex);
                     }
                 } else
@@ -48,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
             }
         }
         // En cas contrari, s'espera un temps per la següent onada
-        else
+        else if (transform.childCount == 0)
         {
             _nextWave += Time.deltaTime;
             if (_nextWave >= _waveInterval)
