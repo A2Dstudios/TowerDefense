@@ -1,0 +1,119 @@
+using System.Collections;
+using System.IO;
+using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.LowLevelPhysics2D;
+using UnityEngine.Splines.ExtrusionShapes;
+
+public class TowerMenu : MonoBehaviour
+{
+
+    [SerializeField] private TowerPlacer _towerPlacer;
+    [SerializeField] private TowerBase[] _towerPrefabs;
+
+    private ArrayList _towerButtons = new ArrayList();
+    private Camera _cam;
+    private PlayerInputs _input;
+    private Vector3 _mouseWorldPos;
+    private float _menuPop = 0;
+    private bool _menuOpen = false;
+    private int _newTower = -1;
+
+    [SerializeField] private float _popupTime = 0.25f;
+
+    [SerializeField] private float _menuRadius = 1.25f;
+
+    private ArrayList _towerQuantities = new ArrayList();
+
+    private void Awake()
+    {
+        _input = new PlayerInputs();
+        _input.Player.Enable();
+        _input.Player.RClick.performed += OpenMenu;
+        _input.Player.LClick.performed += SelectTower;
+
+        int numPos = 0;
+        foreach (TowerBase tb in _towerPrefabs)
+        {
+            GameObject go = new GameObject();
+            Transform goSprite = Instantiate(tb.VisualTransform);
+            goSprite.parent = go.transform;
+            go.transform.parent = transform;
+            float posAngle = 2*math.PI/_towerPrefabs.Length*numPos;
+            go.transform.localPosition = new Vector3(math.cos(posAngle),math.sin(posAngle),0) * _menuRadius;
+            _towerButtons.Add(go);
+            numPos++;
+        }
+    }
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        _cam = Camera.main;
+        transform.localScale = Vector3.zero;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (_menuOpen)
+        {
+            if (_menuPop < 1)
+                _menuPop += Time.deltaTime/_popupTime;
+            else if (_menuPop > 1)
+                _menuPop = 1;
+        } else
+        {
+            if (_menuPop > 0)
+                _menuPop -= Time.deltaTime/_popupTime;
+            else if (_menuPop < 0)
+                _menuPop = 0;
+        }
+
+        transform.localScale = new Vector3(_menuPop, _menuPop, 1);
+
+        if (_newTower != -1)
+        {
+            _towerPlacer.SelectTower(_towerPrefabs[_newTower]);
+            _newTower = -1;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        _input.Player.RClick.performed -= OpenMenu;
+        _input.Player.LClick.performed -= SelectTower;
+    }
+
+    void OpenMenu(InputAction.CallbackContext context)
+    {
+        _menuOpen = !_menuOpen;
+        if (_menuOpen)
+        {
+            _mouseWorldPos = _cam.ScreenToWorldPoint(_input.Player.Mouse.ReadValue<Vector2>());
+            _mouseWorldPos.z = 0;
+            transform.position = _mouseWorldPos;
+        }
+    }
+
+    void SelectTower(InputAction.CallbackContext context)
+    {
+        if (_menuOpen && _menuPop == 1)
+        {
+            _mouseWorldPos = _cam.ScreenToWorldPoint(_input.Player.Mouse.ReadValue<Vector2>());
+            _mouseWorldPos.z = 0;
+            for (int i = 0; i < _towerButtons.Count; i++)
+            {
+                GameObject button = (GameObject)_towerButtons[i];
+                if ((button.transform.position - _mouseWorldPos).magnitude < 1)
+                {
+                    _newTower = i;
+                }
+            }
+            _menuOpen = false;
+        }
+    }
+}
