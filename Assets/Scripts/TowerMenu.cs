@@ -11,6 +11,7 @@ using UnityEngine.Splines.ExtrusionShapes;
 public class TowerMenu : MonoBehaviour
 {
 
+    [SerializeField] private Sprite _bgSprite;
     [SerializeField] private TowerPlacer _towerPlacer;
     [SerializeField] private TowerBase[] _towerPrefabs;
 
@@ -46,6 +47,15 @@ public class TowerMenu : MonoBehaviour
             go.transform.localPosition = new Vector3(math.cos(posAngle),math.sin(posAngle),0) * _menuRadius;
             _towerButtons.Add(go);
             numPos++;
+
+            SpriteRenderer bgSprite = go.AddComponent<SpriteRenderer>();
+            bgSprite.sprite = _bgSprite;
+            bgSprite.sortingLayerName = "UI";
+            bgSprite.sortingOrder = -999;
+            foreach(SpriteRenderer sprite in go.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sprite.sortingLayerName = "UI";
+            }
         }
     }
 
