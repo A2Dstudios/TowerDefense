@@ -17,14 +17,14 @@ public class TowerBase : MonoBehaviour
     [SerializeField] private TargetingMode _targetingMode;
     [SerializeField] protected WeaponData _weaponData;
     [SerializeField] private Transform[] _firePoint;
-    [SerializeField] private Transform _visualTransform;
+    [SerializeField] protected Transform _visualTransform;
     [SerializeField] private bool _faceEnemy = true;
 
     [Header("VFX")]
     [SerializeField] private VisualEffect _upgradeEffect;
     [SerializeField] private DamageFlash _flashScript;
 
-    private readonly List<EnemyBase> _enemiesInRange = new();
+    protected readonly List<EnemyBase> _enemiesInRange = new();
 
     private float _nextFireTime = 0f;
 

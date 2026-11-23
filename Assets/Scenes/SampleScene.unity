@@ -7478,9 +7478,21 @@ PrefabInstance:
       propertyPath: _towerPlacer
       value: 
       objectReference: {fileID: 1346786118}
+    - target: {fileID: 1821604523134960663, guid: 18dd4f414b0cd4a48b7588754d50fe56, type: 3}
+      propertyPath: _towerPrefabs.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1821604523134960663, guid: 18dd4f414b0cd4a48b7588754d50fe56, type: 3}
+      propertyPath: '_towerPrefabs.Array.data[6]'
+      value: 
+      objectReference: {fileID: 3590241404705231105, guid: b02294f983d9951438c2e0709fddee9f, type: 3}
     - target: {fileID: 2651098506979577812, guid: 18dd4f414b0cd4a48b7588754d50fe56, type: 3}
       propertyPath: m_Name
       value: TowerMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 2651098506979577812, guid: 18dd4f414b0cd4a48b7588754d50fe56, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6235931775459945097, guid: 18dd4f414b0cd4a48b7588754d50fe56, type: 3}
       propertyPath: m_LocalPosition.x

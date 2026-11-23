@@ -1,5 +1,6 @@
 
 using System;
+using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Splines;
@@ -20,6 +21,9 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     private SplineContainer _pathSC;
     [HideInInspector] public float _pathProgress = 0f;
+
+    private float _speedMult = 1f;
+
 
     public float MaxHp => _maxHP;
     public float Hp => _hp;
@@ -55,7 +59,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         if (pathLength <= 0f) return;
 
-        _pathProgress += Time.deltaTime * _speed;
+        _pathProgress += Time.deltaTime * _speed * _speedMult;
 
         while (_pathProgress >= pathLength && _path.getNext() != null)
         {
@@ -121,4 +125,23 @@ public class EnemyBase : MonoBehaviour, IDamageable
         Destroy(gameObject);
     }
 
+    private Coroutine _slowCoroutine;
+    public void SlowDown(float amount)
+    {
+        // si hay 2 bailarinas y una está más mejorada se aplica la mas fuerte
+        if (amount > _speedMult) return;
+
+        if (_slowCoroutine != null) StopCoroutine(_slowCoroutine);
+
+        _slowCoroutine = StartCoroutine(SlowCoroutine(amount));
+    }
+
+    private IEnumerator SlowCoroutine(float amount)
+    {
+        _speedMult = amount;
+
+        yield return new WaitForSeconds(0.5f);
+
+        _speedMult = 1f;
+    }
 }
