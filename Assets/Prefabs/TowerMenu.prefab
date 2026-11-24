@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04fafdfad08e7f64a88172edc514d91f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerMenu
+  _bgSprite: {fileID: 0}
   _towerPlacer: {fileID: 0}
   _towerPrefabs:
   - {fileID: 3826683743321365456, guid: 200c8d82124240d4da8573a084faa4a3, type: 3}
@@ -53,3 +54,5 @@ MonoBehaviour:
   - {fileID: 3232057669315307023, guid: 2853d6bfed4bd5d4894bec6bf06759cf, type: 3}
   - {fileID: 2678654785994279026, guid: b5b4c1909a80d57479d742a8c425ddf3, type: 3}
   _popupTime: 0.25
+  _menuRadius: 1.25
+  _spriteOffset: {x: 0, y: -0.1, z: 0}

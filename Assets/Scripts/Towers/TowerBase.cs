@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -124,6 +125,8 @@ public class TowerBase : MonoBehaviour
 
         _upgradeEffect.Play();
         _flashScript.CallDamageFlash();
+
+        GetComponentInChildren<TextMeshPro>().text += "A";
     }
 
     private void OnTriggerEnter2D(Collider2D other)

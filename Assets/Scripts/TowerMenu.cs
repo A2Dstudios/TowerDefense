@@ -1,5 +1,6 @@
 using System.Collections;
 using System.IO;
+using TMPro;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -27,6 +28,8 @@ public class TowerMenu : MonoBehaviour
 
     [SerializeField] private float _menuRadius = 1.25f;
 
+    [SerializeField] private Vector3 _spriteOffset;
+
     private ArrayList _towerQuantities = new ArrayList();
 
     private void Awake()
@@ -39,24 +42,49 @@ public class TowerMenu : MonoBehaviour
         int numPos = 0;
         foreach (TowerBase tb in _towerPrefabs)
         {
-            _towerQuantities.Add(5);
+
+            // Create button
             GameObject go = new GameObject();
-            Transform goSprite = Instantiate(tb.VisualTransform);
-            goSprite.parent = go.transform;
             go.transform.parent = transform;
             float posAngle = 2*math.PI/_towerPrefabs.Length*numPos;
             go.transform.localPosition = new Vector3(math.cos(posAngle),math.sin(posAngle),0) * _menuRadius;
             _towerButtons.Add(go);
-            numPos++;
 
+            // Create sprite
+            Transform goSprite = Instantiate(tb.VisualTransform);
+            goSprite.transform.SetParent(go.transform, false);
+            goSprite.transform.localPosition += _spriteOffset;
+            goSprite.transform.localScale = new Vector3(0.75f, 0.75f, 1);
+
+            // Create quantity text
+            GameObject goText = new GameObject();
+            TextMeshPro tmp = goText.AddComponent<TextMeshPro>();
+            tmp.fontSize = 2.5f;
+            tmp.color = new Color(1, 1, 1, 1);
+            tmp.alignment = TextAlignmentOptions.Center;
+            tmp.verticalAlignment = VerticalAlignmentOptions.Middle;
+            goText.transform.SetParent(go.transform, false);
+            goText.transform.localPosition = new Vector3(math.sqrt(2), -math.sqrt(2), 0) * 0.2f;
+            tmp.sortingLayerID = SortingLayer.NameToID("UI");
+            tmp.sortingOrder = 1;
+
+            // Create background circle
             SpriteRenderer bgSprite = go.AddComponent<SpriteRenderer>();
             bgSprite.sprite = _bgSprite;
             bgSprite.sortingLayerName = "UI";
-            bgSprite.sortingOrder = -999;
+            bgSprite.sortingOrder = -10;
+
+            // Set rendering layer
             foreach(SpriteRenderer sprite in go.GetComponentsInChildren<SpriteRenderer>())
             {
                 sprite.sortingLayerName = "UI";
             }
+
+            // Add initial quantity to inventory
+            _towerQuantities.Add(5);
+
+            // Increment button position
+            numPos++;
         }
     }
 
@@ -115,7 +143,14 @@ public class TowerMenu : MonoBehaviour
             transform.position = _mouseWorldPos;
             for (int i = 0; i < _towerButtons.Count; i++)
             {
+                // Get button
                 GameObject button = (GameObject) _towerButtons[i];
+
+                // Set quantity text
+                TextMeshPro tmp = button.GetComponentInChildren<TextMeshPro>();
+                tmp.text = ((int)_towerQuantities[i]).ToString();
+
+                // Set button availability
                 SpriteRenderer[] sprites = button.GetComponentsInChildren<SpriteRenderer>();
                 Color imageColor = Color.white;
                 if ((int) _towerQuantities[i] == 0)
