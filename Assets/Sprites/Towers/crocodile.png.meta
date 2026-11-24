@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 1bde37423ce400341afcfa75705c8d18
+guid: 3911f99daa537a84ca5a8642394b42a9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3119011419205898043
-    second: crorodile_0
+      213: 6507982653818034734
+    second: crocodile_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crorodile_0
+      name: crocodile_0
       rect:
         serializedVersion: 2
         x: 8
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b3f872c4c54f84b20800000000000000
-      internalID: 3119011419205898043
+      spriteID: e2a5a3d2ebff05a50800000000000000
+      internalID: 6507982653818034734
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      crorodile_0: 3119011419205898043
+      crocodile_0: 6507982653818034734
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
