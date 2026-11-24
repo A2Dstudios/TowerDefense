@@ -118,9 +118,8 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
         _isDead = true;
 
-        PlayerProgression playerProgression = FindAnyObjectByType<PlayerProgression>();
-
         OnDeath?.Invoke(_xp);
+        GameManager.Instance.GetXp(_xp);
 
         Destroy(gameObject);
     }

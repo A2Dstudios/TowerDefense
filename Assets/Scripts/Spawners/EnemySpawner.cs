@@ -1,4 +1,6 @@
+using NUnit.Framework;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -18,6 +20,12 @@ public class EnemySpawner : MonoBehaviour
 
     private float _nextSpawn;
     private float _nextWave;
+
+    private void Awake()
+    {
+        // genera basura, si se hace en el proyecto usar ZLinq, pero aqui esta bien :)
+        _enemyPrefabs.ToList().Sort((i,j) => { return i.XP.CompareTo(j.XP); });
+    }
 
     private void Update()
     {
