@@ -6573,6 +6573,7 @@ MonoBehaviour:
   _towerLayer:
     serializedVersion: 2
     m_Bits: 128
+  _selectedTower: {fileID: 0}
 --- !u!1 &1347590269
 GameObject:
   m_ObjectHideFlags: 0

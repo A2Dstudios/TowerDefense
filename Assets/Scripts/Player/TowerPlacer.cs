@@ -188,16 +188,18 @@ public class TowerPlacer : MonoBehaviour
         for (int i = 0; i < _preview.transform.childCount; i++)
             Destroy(_preview.transform.GetChild(0).gameObject);
 
-        if (tower != null) {
-        Transform preview = Instantiate(_selectedTower.VisualTransform, _preview.transform);
-        
-        CircleCollider2D col = preview.GetComponent<CircleCollider2D>();
-        _selectedTowerRadius = col.radius;
-        col.enabled = false;
+        if (tower != null) 
+        {
+            Transform preview = Instantiate(_selectedTower.VisualTransform, _preview.transform);
+            preview.transform.localPosition = Vector3.zero;
 
-        _previewSprites = preview.GetComponentsInChildren<SpriteRenderer>();
+            CircleCollider2D col = preview.GetComponent<CircleCollider2D>();
+            _selectedTowerRadius = col.radius;
+            col.enabled = false;
 
-        foreach (SpriteRenderer sprite in _previewSprites) sprite.sortingOrder = 100;
+            _previewSprites = preview.GetComponentsInChildren<SpriteRenderer>();
+
+            foreach (SpriteRenderer sprite in _previewSprites) sprite.sortingOrder = 100;
 
             _preview.SetActive(true);
         }

@@ -321,7 +321,7 @@ Transform:
   m_GameObject: {fileID: 7703659474047182369}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.65657, y: -2.55686, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -348,6 +348,7 @@ MonoBehaviour:
   _firePoint:
   - {fileID: 2365418757195288}
   _visualTransform: {fileID: 6363404283278900179}
+  _faceEnemy: 1
   _upgradeEffect: {fileID: 4352330643589348665}
   _flashScript: {fileID: 7716108419913607268}
 --- !u!58 &9125752303436796628

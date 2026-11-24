@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 99a64cc077b7f544b96e3903060b223b
+guid: d8c860e316242624382fb7a615c2d5e3
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,10 +103,10 @@ TextureImporter:
       name: cube_0
       rect:
         serializedVersion: 2
-        x: 50
-        y: 73
-        width: 923
-        height: 880
+        x: 26
+        y: 15
+        width: 205
+        height: 197
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
