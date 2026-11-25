@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,9 +8,13 @@ public class PlayerUI : MonoBehaviour
     [Header("Leveling")]
     [SerializeField] private Image _xpBar;
     [SerializeField] private GameObject _levelUpScreen;
+    [SerializeField] private Transform _radialBg;
+    [SerializeField] private float _bgSpeed;
 
     void Start()
     {
+        _levelUpScreen.SetActive(false);
+
         GameManager.Instance.OnXpUpdate += UpdateXpBar; 
         GameManager.Instance.OnLevelUp += StartLevelUp; 
     }
@@ -18,6 +23,11 @@ public class PlayerUI : MonoBehaviour
     {
         GameManager.Instance.OnXpUpdate -= UpdateXpBar;
         GameManager.Instance.OnLevelUp -= StartLevelUp; 
+    }
+
+    private void Update()
+    {
+        _radialBg.eulerAngles += Vector3.forward * Time.unscaledDeltaTime * _bgSpeed;
     }
 
     private void UpdateXpBar(float currentXp, float maxXp)
