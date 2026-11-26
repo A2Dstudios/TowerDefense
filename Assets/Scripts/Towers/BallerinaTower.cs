@@ -21,5 +21,7 @@ public class BallerinaTower : TowerBase
 
         _singEffect.SetFloat("radius", AttackRange);
         _singEffect.Play();
+
+        _animator.SetTrigger("shoot");
     }
 }

@@ -24,6 +24,7 @@ public class TowerBase : MonoBehaviour
     [Header("VFX")]
     [SerializeField] private VisualEffect _upgradeEffect;
     [SerializeField] private DamageFlash _flashScript;
+    [SerializeField] protected Animator _animator;
 
     protected readonly List<EnemyBase> _enemiesInRange = new();
 
@@ -103,6 +104,8 @@ public class TowerBase : MonoBehaviour
         GameObject projectileObject = Instantiate(_weaponData.projectilePrefab, firepoint, Quaternion.identity);
 
         projectileObject.GetComponent<ProjectileBase>().Init(_weaponData, direction);
+
+        _animator.SetTrigger("shoot");
     }
 
     private void Face(EnemyBase target)

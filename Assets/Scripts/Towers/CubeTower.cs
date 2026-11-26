@@ -22,5 +22,7 @@ public class CubeTower : TowerBase
         }
 
         odd = !odd;
+
+        _animator.SetTrigger("shoot");
     }
 }

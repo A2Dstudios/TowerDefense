@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819196099428047261, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.103
+      value: 0.353
       objectReference: {fileID: 0}
     - target: {fileID: 7703659474047182369, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_Name
@@ -97,6 +97,11 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 2678654785994279026}
   m_SourcePrefab: {fileID: 100100000, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+--- !u!95 &2707827206604317241 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2829774898022667006, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+  m_PrefabInstance: {fileID: 203017372653367495}
+  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &4519316667872579070 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 4352330643589348665, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
@@ -134,6 +139,7 @@ MonoBehaviour:
   _faceEnemy: 1
   _upgradeEffect: {fileID: 4519316667872579070}
   _flashScript: {fileID: 7621318175944431779}
+  _animator: {fileID: 2707827206604317241}
 --- !u!114 &7621318175944431779 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7716108419913607268, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}

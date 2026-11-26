@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6819196099428047261, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.204
+      value: 0.454
       objectReference: {fileID: 0}
     - target: {fileID: 7703659474047182369, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
       propertyPath: m_Name
@@ -237,6 +237,11 @@ PrefabInstance:
       insertIndex: 1
       addedObject: {fileID: 3590241404705231105}
   m_SourcePrefab: {fileID: 100100000, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+--- !u!95 &752955752372215181 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2829774898022667006, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
+  m_PrefabInstance: {fileID: 3257905740686217075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!2083052967 &1247776010707825226 stripped
 VisualEffect:
   m_CorrespondingSourceObject: {fileID: 4352330643589348665, guid: 3b6194763d0259c4394da81f8c3dfa82, type: 3}
@@ -285,6 +290,7 @@ MonoBehaviour:
   _faceEnemy: 0
   _upgradeEffect: {fileID: 1247776010707825226}
   _flashScript: {fileID: 5054014853897201431}
+  _animator: {fileID: 752955752372215181}
   _singEffect: {fileID: 5894675632096208712}
 --- !u!58 &6022235588055489959 stripped
 CircleCollider2D:
