@@ -23,13 +23,15 @@ public class TowerPlacer : MonoBehaviour
     private TowerBase _towerToUpgrade;
     private bool _canUpgrade;
 
-    public TowerBase _selectedTower;
+    private TowerBase _selectedTower;
     private float _selectedTowerRadius;
     private SpriteRenderer[] _previewSprites;
 
     private LineRenderer _previewRangeLine;
 
     private SplineContainer[] _paths;
+
+    public TowerBase SelectedTower => _selectedTower;
 
     private void Awake()
     {
@@ -60,6 +62,8 @@ public class TowerPlacer : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.IsPaused) return;
+
         ShowPreview();
         DrawPreviewRange();
     }
@@ -164,6 +168,8 @@ public class TowerPlacer : MonoBehaviour
 
     private void PlaceTower(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.IsPaused) return;
+
         if (_selectedTower == null) return;
         if (!_canPlace) return;
         _placing = false;
@@ -181,6 +187,8 @@ public class TowerPlacer : MonoBehaviour
 
     public void SelectTower(TowerBase tower)
     {
+        if (GameManager.Instance.IsPaused) return;
+
         _placing = true;
         _selectedTower = tower;
 

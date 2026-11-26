@@ -1,20 +1,17 @@
 using System.Collections;
-using System.IO;
+using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.LowLevelPhysics2D;
-using UnityEngine.Splines.ExtrusionShapes;
 
 public class TowerMenu : MonoBehaviour
 {
 
     [SerializeField] private Sprite _bgSprite;
     [SerializeField] private TowerPlacer _towerPlacer;
-    [SerializeField] private TowerBase[] _towerPrefabs;
+    
+    private TowerBase[] _towerPrefabs;
 
     private ArrayList _towerButtons = new ArrayList();
     private Camera _cam;
@@ -30,7 +27,7 @@ public class TowerMenu : MonoBehaviour
 
     [SerializeField] private Vector3 _spriteOffset;
 
-    private ArrayList _towerQuantities = new ArrayList();
+    private List<int> _towerQuantities = new List<int>();
 
     private void Awake()
     {
@@ -39,6 +36,13 @@ public class TowerMenu : MonoBehaviour
         _input.Player.RClick.performed += OpenMenu;
         _input.Player.LClick.performed += SelectTower;
 
+
+    }
+
+    void Start()
+    {
+        _towerPrefabs = GameManager.Instance.TowerPrefabs;
+
         int numPos = 0;
         foreach (TowerBase tb in _towerPrefabs)
         {
@@ -46,8 +50,8 @@ public class TowerMenu : MonoBehaviour
             // Create button
             GameObject go = new GameObject();
             go.transform.parent = transform;
-            float posAngle = 2*math.PI/_towerPrefabs.Length*numPos;
-            go.transform.localPosition = new Vector3(math.cos(posAngle),math.sin(posAngle),0) * _menuRadius;
+            float posAngle = 2 * math.PI / _towerPrefabs.Length * numPos;
+            go.transform.localPosition = new Vector3(math.cos(posAngle), math.sin(posAngle), 0) * _menuRadius;
             _towerButtons.Add(go);
 
             // Create sprite
@@ -75,29 +79,28 @@ public class TowerMenu : MonoBehaviour
             bgSprite.sortingOrder = -10;
 
             // Set rendering layer
-            foreach(SpriteRenderer sprite in go.GetComponentsInChildren<SpriteRenderer>())
+            foreach (SpriteRenderer sprite in go.GetComponentsInChildren<SpriteRenderer>())
             {
                 sprite.sortingLayerName = "UI";
             }
 
             // Add initial quantity to inventory
-            _towerQuantities.Add(5);
+            _towerQuantities.Add(0);
 
             // Increment button position
             numPos++;
         }
-    }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+        _towerQuantities[0]++; // empezar con un cañon
+
         _cam = Camera.main;
         transform.localScale = Vector3.zero;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.IsPaused) return;
+
         if (_menuOpen)
         {
             if (_menuPop < 1)
@@ -126,12 +129,16 @@ public class TowerMenu : MonoBehaviour
     {
         _input.Player.RClick.performed -= OpenMenu;
         _input.Player.LClick.performed -= SelectTower;
+
+        _input.Player.Disable();
     }
 
     void OpenMenu(InputAction.CallbackContext context)
     {
-        if (_towerPlacer._selectedTower != null) {
-            addTower(_towerPlacer._selectedTower);
+        if (GameManager.Instance.IsPaused) return;
+
+        if (_towerPlacer.SelectedTower != null) {
+            addTower(_towerPlacer.SelectedTower);
             _towerPlacer.SelectTower(null);
         }
 
@@ -164,6 +171,8 @@ public class TowerMenu : MonoBehaviour
 
     void SelectTower(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance.IsPaused) return;
+
         if (_menuOpen && _menuPop == 1)
         {
             _mouseWorldPos = _cam.ScreenToWorldPoint(_input.Player.Mouse.ReadValue<Vector2>());
@@ -184,6 +193,6 @@ public class TowerMenu : MonoBehaviour
     {
         for (int i = 0; i < _towerPrefabs.Length; i++)
             if (_towerPrefabs[i] == tower)
-                _towerQuantities[i] = (int)_towerQuantities[i] + 1;
+                _towerQuantities[i]++;
     }
 }

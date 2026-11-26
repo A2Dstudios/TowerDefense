@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Towers")]
+    [SerializeField] private TowerBase[] _towerPrefabs;
+
     [Header("Leveling")]
     [SerializeField] private float _baseLevelXP = 10f;
     [SerializeField] private float _multiplierXP = 1.25f;
@@ -12,12 +15,17 @@ public class GameManager : MonoBehaviour
     private float _nextLevelXP;
     public Action<float, float> OnXpUpdate;
     public Action OnLevelUp;
+    private bool _paused;
 
     [Header("Map")]
     [SerializeField] private Transform _objective;
     public Vector3 Objective => _objective.position;
 
+    public TowerBase[] TowerPrefabs => _towerPrefabs;
+    public bool IsPaused => _paused;
+
     public static GameManager Instance { get; private set; }
+    
 
     private void Awake()
     {
@@ -57,4 +65,15 @@ public class GameManager : MonoBehaviour
         OnLevelUp?.Invoke();
     }
 
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        _paused = true;
+    }
+
+    public void UnPause()
+    {
+        Time.timeScale = 1f;
+        _paused = false;
+    }
 }
