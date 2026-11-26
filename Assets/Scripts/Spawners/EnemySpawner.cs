@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Linq;
 using UnityEngine;
@@ -21,6 +21,8 @@ public class EnemySpawner : MonoBehaviour
     private float _nextSpawn;
     private float _nextWave;
 
+    public Action<int> OnWaveStart;
+
     private void Awake()
     {
         // genera basura, si se hace en el proyecto usar ZLinq, pero aqui esta bien :)
@@ -37,10 +39,10 @@ public class EnemySpawner : MonoBehaviour
             {
                 if (_waveEnemies.Count > 0)
                 {
-                    int enemiesSent = Random.Range(Mathf.Max(0, Mathf.Min(_wave/_wavesPerRound - 5, _spawnPoints.Length-1, _waveEnemies.Count - 1)), Mathf.Min(_wave / _wavesPerRound, _spawnPoints.Length-1, _waveEnemies.Count-1));
+                    int enemiesSent = UnityEngine.Random.Range(Mathf.Max(0, Mathf.Min(_wave/_wavesPerRound - 5, _spawnPoints.Length-1, _waveEnemies.Count - 1)), Mathf.Min(_wave / _wavesPerRound, _spawnPoints.Length-1, _waveEnemies.Count-1));
                     for (int i = 0; i <= enemiesSent; i++)
                     {
-                        int enemyIndex = Random.Range(0, _waveEnemies.Count - 1);
+                        int enemyIndex = UnityEngine.Random.Range(0, _waveEnemies.Count - 1);
                         EnemyBase prefab = Instantiate(_enemyPrefabs[(int) _waveEnemies[enemyIndex]]);
                         prefab._path = _spawnPoints[i];
                         prefab.transform.position = prefab._path.GetComponent<SplineContainer>().EvaluatePosition(0);
@@ -49,8 +51,8 @@ public class EnemySpawner : MonoBehaviour
                     }
                 } else
                 {
-                    EnemyBase prefab = Instantiate(_bossPrefabs[Random.Range(0, _bossPrefabs.Length)]);
-                    prefab._path = _spawnPoints[Random.Range(0, Mathf.Max(0, Mathf.Min(_wave / _wavesPerRound - 5, _spawnPoints.Length)))];
+                    EnemyBase prefab = Instantiate(_bossPrefabs[UnityEngine.Random.Range(0, _bossPrefabs.Length)]);
+                    prefab._path = _spawnPoints[UnityEngine.Random.Range(0, Mathf.Max(0, Mathf.Min(_wave / _wavesPerRound - 5, _spawnPoints.Length)))];
                     _roundBoss = false;
                 }
                 _nextSpawn = 0;
@@ -71,7 +73,7 @@ public class EnemySpawner : MonoBehaviour
                         if (enemy.XP <= waveXP)
                             worstEnemy++;
                     }
-                    int newEnemy = Random.Range(0, worstEnemy);
+                    int newEnemy = UnityEngine.Random.Range(0, worstEnemy);
                     _waveEnemies.Add(newEnemy);
                     waveXP -= _enemyPrefabs[newEnemy].XP;
                 }
@@ -82,6 +84,7 @@ public class EnemySpawner : MonoBehaviour
                     _roundBoss = true;
                 }
                 Debug.Log("Onada " + _wave + ": Venen "+_waveEnemies.Count+" enemics");
+                OnWaveStart?.Invoke(_wave);
             }
         }
     }
