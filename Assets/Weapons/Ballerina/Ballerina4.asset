@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Ballerina4
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   projectilePrefab: {fileID: 0}
-  attackRange: 1.95
+  attackRange: 2
   fireRate: 0.3
   projectileSpeed: 0
-  attackDamage: 0.4
+  attackDamage: 0.43
   piercing: 0
   upgradedWeapon: {fileID: 11400000, guid: 39b1b318f7e5f9448987147b2ca3f6b2, type: 2}

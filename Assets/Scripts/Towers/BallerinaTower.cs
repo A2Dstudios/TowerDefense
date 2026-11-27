@@ -15,10 +15,6 @@ public class BallerinaTower : TowerBase
             e.SlowDown(_weaponData.attackDamage);     
         }
 
-        // que se gire cada vez que ataca para que parezca que baila lalalalala soy una bailarina mira que bonitaaa
-        Vector3 scale = _visualTransform.localScale;
-        _visualTransform.localScale = new Vector3(-scale.x, scale.y, scale.z);
-
         _singEffect.SetFloat("radius", AttackRange);
         _singEffect.Play();
 

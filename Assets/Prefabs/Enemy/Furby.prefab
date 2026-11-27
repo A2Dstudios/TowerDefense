@@ -119,11 +119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c773edc02385d4f9b83a27c7cee0ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Furby
-  _maxHP: 15
-  _speed: 1
-  _xp: 5
+  _maxHP: 50
+  _speed: 0.9
+  _xp: 12
   _path: {fileID: 0}
   _visualTransform: {fileID: 672116264643488815}
+  _pathProgress: 0
   _screamInterval: 4
   _screamDuration: 1
   _speedMultiplier: 2

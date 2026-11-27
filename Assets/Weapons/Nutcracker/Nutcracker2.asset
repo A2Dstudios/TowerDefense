@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Nutcracker2
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   projectilePrefab: {fileID: 4475091045041370903, guid: 3111234113c25fa43b6d7ee655bc9663, type: 3}
-  attackRange: 3.5
-  fireRate: 0.8
+  attackRange: 3.2
+  fireRate: 1.45
   projectileSpeed: 19
-  attackDamage: 6
+  attackDamage: 5.5
   piercing: 1
   upgradedWeapon: {fileID: 11400000, guid: c3071892a67e36a40b555e9f191b0bc1, type: 2}

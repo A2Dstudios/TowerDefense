@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Cannonball3
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   projectilePrefab: {fileID: 6995532772497374947, guid: d4fa375b6080dcb4495b504918b82ac6, type: 3}
-  attackRange: 1.9
-  fireRate: 0.35
+  attackRange: 1.75
+  fireRate: 0.5
   projectileSpeed: 12
-  attackDamage: 2
+  attackDamage: 2.5
   piercing: 0
   upgradedWeapon: {fileID: 11400000, guid: 5d1830bd65a2f6649a2541432c5af325, type: 2}

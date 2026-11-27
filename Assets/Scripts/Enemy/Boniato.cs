@@ -27,6 +27,7 @@ public class Boniato : EnemyBase
         part.gameObject.SetActive(false);
 
         EnemyBase enemy = Instantiate(_partEnemyPrefab, part.transform.position, Quaternion.identity);
+        enemy.transform.SetParent(transform.parent, true);
 
         enemy._path = _path;
         enemy._pathProgress = _pathProgress;

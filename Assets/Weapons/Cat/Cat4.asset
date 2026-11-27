@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Cat4
   m_EditorClassIdentifier: Assembly-CSharp::BombWeaponData
   projectilePrefab: {fileID: 2623523231480047056, guid: 9635a0d8f58b34a40a1ad0760d1e335b, type: 3}
-  attackRange: 2.4
-  fireRate: 0.8
+  attackRange: 2
+  fireRate: 1.15
   projectileSpeed: 13
-  attackDamage: 4
+  attackDamage: 2.7
   piercing: 0
   upgradedWeapon: {fileID: 11400000, guid: 285df54a4525e3e4aba1eb2ed817db27, type: 2}
-  explosionRadius: 1.65
+  explosionRadius: 1.4

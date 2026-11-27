@@ -16,6 +16,6 @@ MonoBehaviour:
   attackRange: 2.2
   fireRate: 0.3
   projectileSpeed: 0
-  attackDamage: 0.2
+  attackDamage: 0.35
   piercing: 0
   upgradedWeapon: {fileID: 0}

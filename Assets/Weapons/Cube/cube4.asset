@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: cube4
   m_EditorClassIdentifier: Assembly-CSharp::MultiShotWeaponData
   projectilePrefab: {fileID: 5294957904869069007, guid: f617419a94d91084d857e6ea5b627e0c, type: 3}
-  attackRange: 1.6
-  fireRate: 0.5
-  projectileSpeed: 9
-  attackDamage: 4
-  piercing: 1
+  attackRange: 1.45
+  fireRate: 0.77
+  projectileSpeed: 7.4
+  attackDamage: 2.1
+  piercing: 0
   upgradedWeapon: {fileID: 11400000, guid: ccc186629a7350846ad53dc5c9d5dfcf, type: 2}
-  projectileAmount: 12
+  projectileAmount: 9

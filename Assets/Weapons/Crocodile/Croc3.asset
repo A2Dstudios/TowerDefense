@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Croc3
   m_EditorClassIdentifier: Assembly-CSharp::WeaponData
   projectilePrefab: {fileID: 6422664833207639127, guid: 9c82121208131804aacec1fd58ae5679, type: 3}
-  attackRange: 1.4
-  fireRate: 0.3
+  attackRange: 1.5
+  fireRate: 0.385
   projectileSpeed: 12.5
-  attackDamage: 1.5
-  piercing: 5
+  attackDamage: 1.1
+  piercing: 4
   upgradedWeapon: {fileID: 11400000, guid: 1c3537f76eee77348ba450e8ac9f2e45, type: 2}

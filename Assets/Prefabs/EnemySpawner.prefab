@@ -1,0 +1,130 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6415468836707794892
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3976812256349676264}
+  - component: {fileID: 5557712163037283251}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3976812256349676264
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415468836707794892}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.76497, y: 0.46524, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5557712163037283251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6415468836707794892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f02b927bbed97441bfcc9414f7c49c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
+  _enemies:
+  - prefab: {fileID: 4078547897108861676, guid: 971887075343bdd48bdcdcf475390486, type: 3}
+    unlockWave: 1
+    weight: 1
+    weightPerWave: -0.06
+    introCount: 0
+    groupMin: 1
+    groupMax: 2
+    groupGrowth: 0.15
+    groupSpacing: 0.45
+  - prefab: {fileID: 6027040085941403736, guid: 96f72c03b86b53440952f2a1e27eeff4, type: 3}
+    unlockWave: 3
+    weight: 1
+    weightPerWave: -0.06
+    introCount: 0
+    groupMin: 1
+    groupMax: 2
+    groupGrowth: 0.1
+    groupSpacing: 0.35
+  - prefab: {fileID: 4724916054535690105, guid: 5ae5b381654cc044ea55e662ceaa56fa, type: 3}
+    unlockWave: 5
+    weight: 0.5
+    weightPerWave: -0.01
+    introCount: 0
+    groupMin: 4
+    groupMax: 6
+    groupGrowth: 0.6
+    groupSpacing: 0.12
+  - prefab: {fileID: 855002102028955623, guid: 6ec0d05d2591dff4491bdc113ccbb15b, type: 3}
+    unlockWave: 8
+    weight: 1
+    weightPerWave: -0.03
+    introCount: 0
+    groupMin: 1
+    groupMax: 2
+    groupGrowth: 0.08
+    groupSpacing: 0.6
+  - prefab: {fileID: 1763067102372281203, guid: fb821c0deb249494a9ad6ee20c8fccb5, type: 3}
+    unlockWave: 11
+    weight: 1
+    weightPerWave: 0.04
+    introCount: 1
+    groupMin: 1
+    groupMax: 1
+    groupGrowth: 0.04
+    groupSpacing: 1
+  - prefab: {fileID: 6027040085941403736, guid: cfa22e7ccbfe0254fafca2e458b56a3a, type: 3}
+    unlockWave: 14
+    weight: 1
+    weightPerWave: -0.02
+    introCount: 0
+    groupMin: 1
+    groupMax: 3
+    groupGrowth: 0.1
+    groupSpacing: 0.3
+  - prefab: {fileID: 621623828776654505, guid: d81a4d08c068fa94996f8094aaed432b, type: 3}
+    unlockWave: 18
+    weight: 0.6
+    weightPerWave: 0.8
+    introCount: 2
+    groupMin: 1
+    groupMax: 1
+    groupGrowth: 0.06
+    groupSpacing: 1.5
+  _bossPrefab: {fileID: 8308555057642856126, guid: d36b4efcebdc02d41b83155e4a07121b, type: 3}
+  _bossWave: 30
+  _spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _startingPaths: 1
+  _pathUnlockWaves: 04000000070000000a0000000d0000001000000015000000
+  _initialEnergy: 4
+  _energyPerWave: 2.2
+  _energyGrowth: 0.56
+  _baseSpawnDuration: 8
+  _spawnDurationPerWave: 0.95
+  _minGroupDelay: 0.15
+  _waveInterval: 1
+  _introPosition: 0.6

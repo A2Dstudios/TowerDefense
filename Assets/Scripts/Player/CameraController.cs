@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
         float speedMult = Mathf.Lerp(0, 1f, t);
 
         // aplicar el movimiento al transform de la vcam
-        transform.position += moveDir * _moveSpeed * speedMult * Time.deltaTime;
+        transform.position += moveDir * _moveSpeed * speedMult * Time.unscaledDeltaTime;
 
         // correccion por si la vcam se separa de la camara real (se sale de los bordes)
         Vector3 cameraPos = _cam.transform.position;

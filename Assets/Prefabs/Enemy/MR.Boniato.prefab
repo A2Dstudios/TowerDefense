@@ -1063,13 +1063,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177e045c64507164fbd0667e9b2d9c29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Boniato
-  _maxHP: 300
-  _speed: 0.5
+  _maxHP: 1200
+  _speed: 0.18
   _xp: 100
   _path: {fileID: 0}
   _visualTransform: {fileID: 5548583344698338234}
   _pathProgress: 0
-  _partEnemyPrefab: {fileID: 558108532687710616, guid: 3d302985b626aff42bf221a5948cacad, type: 3}
+  _partEnemyPrefab: {fileID: 6232738213295010764, guid: 4bad3bb26944f9b4bbdc27784e2c01b7, type: 3}
   _parts:
   - {fileID: 170049821650094157}
   - {fileID: 265978550600694564}

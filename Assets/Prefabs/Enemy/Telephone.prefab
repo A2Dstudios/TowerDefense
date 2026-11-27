@@ -139,10 +139,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efe528cb7298ae4d846a27e6d16c43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TelephoneTank
-  _maxHP: 30
-  _speed: 0.5
-  _xp: 10
+  _maxHP: 70
+  _speed: 0.45
+  _xp: 22
   _path: {fileID: 0}
   _visualTransform: {fileID: 6602386758516795879}
+  _pathProgress: 0
   _armor: 1
   _minimumDamage: 0.25

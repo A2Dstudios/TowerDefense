@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Soldiers5
   m_EditorClassIdentifier: Assembly-CSharp::Weapon
   projectilePrefab: {fileID: 6093238711409793100, guid: 59129828835438f4495f1c8cb71be809, type: 3}
-  attackRange: 1.2
-  fireRate: 0.05
+  attackRange: 1.6
+  fireRate: 0.1
   projectileSpeed: 14
-  attackDamage: 1.5
+  attackDamage: 1.1
   piercing: 0
   upgradedWeapon: {fileID: 0}

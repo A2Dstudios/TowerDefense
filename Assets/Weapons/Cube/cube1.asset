@@ -15,7 +15,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5294957904869069007, guid: f617419a94d91084d857e6ea5b627e0c, type: 3}
   attackRange: 1.15
   fireRate: 1
-  projectileSpeed: 6
+  projectileSpeed: 6.2
   attackDamage: 1
   piercing: 0
   upgradedWeapon: {fileID: 11400000, guid: 0a09b6003b7add64492a0f08fa48f922, type: 2}
