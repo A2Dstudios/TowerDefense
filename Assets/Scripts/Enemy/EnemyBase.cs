@@ -24,6 +24,7 @@ public class EnemyBase : MonoBehaviour, IDamageable
 
     private float _speedMult = 1f;
 
+    private bool _inCenter;
 
     public float MaxHp => _maxHP;
     public float Hp => _hp;
@@ -49,6 +50,13 @@ public class EnemyBase : MonoBehaviour, IDamageable
     protected virtual void Update()
     {
         Move();
+
+        // al entrar al centro empieza a hacer daño
+        if (!_inCenter && _path != null && _path.IsCenter && Egg.Instance != null)
+        {
+            _inCenter = true;
+            Egg.Instance.Register(this);
+        }
     }
 
     protected virtual void Move()
