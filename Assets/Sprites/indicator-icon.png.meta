@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 082289b15a179cf4b88ca9841c8a072e
+guid: d99b8a370cc0363498b66540c76a9c65
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2869543926822309318
-    second: temp_soldiers_0
-  - first:
-      213: 8019368237760688187
-    second: temp_soldiers_1
-  - first:
-      213: -1479370559466850263
-    second: temp_soldiers_2
+      213: -3127552679154939589
+    second: indicator-icon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: temp_soldiers_0
+      name: indicator-icon_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 103
-        width: 227
-        height: 362
+        x: 44
+        y: 42
+        width: 203
+        height: 196
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a32706680055d28d0800000000000000
-      internalID: -2869543926822309318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: temp_soldiers_1
-      rect:
-        serializedVersion: 2
-        x: 220
-        y: 53
-        width: 173
-        height: 336
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b30b6ce7ce48a4f60800000000000000
-      internalID: 8019368237760688187
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: temp_soldiers_2
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 92
-        width: 116
-        height: 215
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 928becf6058387be0800000000000000
-      internalID: -1479370559466850263
+      spriteID: b3906a6a863b894d0800000000000000
+      internalID: -3127552679154939589
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      temp_soldiers_0: -2869543926822309318
-      temp_soldiers_1: 8019368237760688187
-      temp_soldiers_2: -1479370559466850263
+      indicator-icon_0: -3127552679154939589
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

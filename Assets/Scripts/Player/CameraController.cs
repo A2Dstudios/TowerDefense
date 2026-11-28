@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
     private Camera _cam;
     private CinemachineCamera _vCam;
     private CinemachineConfiner2D _confiner;
-
+    
     // el transform de la vcam se puede salir de los margenes mientras la camara de verdad esta quieta en el borde
     private float _maxDistanceFromCamera = 0.1f;
 
@@ -43,6 +43,8 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.IsPaused) return;
+
         MoveCamera();
         ZoomCamera();
     }

@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 17303c11990d3324b9b74ae07c1c6b59
+guid: 65b47b2ec7be2df4a9b38fad430d0a7e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4659445839964592416
-    second: temp_cannon_0
-  - first:
-      213: -1589649479208733460
-    second: temp_cannon_1
+      213: -5421986444569704788
+    second: boniato-sign_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: temp_cannon_0
+      name: boniato-sign_0
       rect:
         serializedVersion: 2
-        x: 145
-        y: 210
-        width: 705
-        height: 599
+        x: 14
+        y: 2
+        width: 230
+        height: 245
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0e62db202b2565fb0800000000000000
-      internalID: -4659445839964592416
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: temp_cannon_1
-      rect:
-        serializedVersion: 2
-        x: 836
-        y: 299
-        width: 22
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ce4f062983e60f9e0800000000000000
-      internalID: -1589649479208733460
+      spriteID: ca6807a3e0c31c4b0800000000000000
+      internalID: -5421986444569704788
       vertices: []
       indices: 
       edges: []
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      temp_cannon_0: -4659445839964592416
-      temp_cannon_1: -1589649479208733460
+      boniato-sign_0: -5421986444569704788
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
